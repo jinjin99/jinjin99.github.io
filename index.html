@@ -62,6 +62,90 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-day1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/08/day1/" class="article-date">
+  <time datetime="2019-07-08T09:44:14.000Z" itemprop="datePublished">2019-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/08/day1/">day1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>### </p>
+<h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><ul>
+<li><p>hexo new “title”：新建标题为 title的文章。</p>
+</li>
+<li><p>hexo g ： 生成网站静态文件到默认设置的public文件夹</p>
+<ul>
+<li>便于查看网站生成的静态文件或者手动部署网站。</li>
+<li>hexo g 是hexo generate的缩写。</li>
+</ul>
+</li>
+<li><p>hexo s ：启用本地服务器，用于预览主题。默认地址为 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
+<ul>
+<li>hexo s 是hexo server 的缩写，命令效果一致。</li>
+<li>预览的同时可以修改文章内容或主题代码，保存后刷新页面即可。</li>
+</ul>
+</li>
+<li><p>hexo d ：自动生成网站静态文件，并部署到设定的仓库</p>
+<ul>
+<li>hexo d 是hexo deploy的缩写。</li>
+</ul>
+</li>
+</ul>
+<h3 id="git流程"><a href="#git流程" class="headerlink" title="git流程"></a>git流程</h3><p>1、克隆仓库</p>
+<p>git clone XXX</p>
+<p>git init</p>
+<p>2、先获取远程master分支的最新代码</p>
+<p>git checkout master</p>
+<p>git pull origin master</p>
+<p>3、创建分支</p>
+<p>git branch test</p>
+<p>4、切换分支</p>
+<p>git checkout test</p>
+<p>（2、3可合成 git checkout -b test）</p>
+<p>5、在完成步骤2，3后，就可以继续自己的工作（敲代码）</p>
+<p>6、完成工作后，就可以提交到自己的工作分支test</p>
+<p>git add .   （这个指令是指我们在工作区对文件做的修改放入暂存区，之后可以继续对该文件进行修改，但暂存区里面保存了该文件上一次放进去的样子）</p>
+<p>git commit -m “ 这里是解释 “  （将暂存区的文件提交到本地版本库）</p>
+<p><strong>1-6步骤，对git的操作都只是在本地进行，需要对代码的修改推到远程仓库，其他人才能看到修改后的代码</strong></p>
+<p>7、git push origin test</p>
+<p>8、此时该分支的代码还不在master分支中，避免merge失败，先将master分支上最新的代码 marge到当前分支。</p>
+<p>git pull –rebase origin master</p>
+<p>（如果有错误题是，则打开冲突文件，修改冲突</p>
+<p>git status：查看有冲突的文件</p>
+<p>调整好冲突文件后，git add .</p>
+<p>）</p>
+<p>9、git add .</p>
+<p>git rebase –continue</p>
+<p>git push origin test</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/08/day1/" data-id="cjxudt90a0000kgvcg1o8hlaa" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/08/hello-world/" class="article-date">
@@ -101,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjxu6mado0000lovcxvnrt0yx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjxudt90g0001kgvc42w7k32y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -140,6 +224,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/07/08/day1/">day1</a>
+          </li>
         
           <li>
             <a href="/2019/07/08/hello-world/">Hello World</a>
