@@ -84,30 +84,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="在html中使用JavaScript"><a href="#在html中使用JavaScript" class="headerlink" title="在html中使用JavaScript"></a>在html中使用JavaScript</h4><h5 id="1、元素嵌入代码"><a href="#1、元素嵌入代码" class="headerlink" title="1、元素嵌入代码"></a>1、<script>元素嵌入代码</h5><ul>
-<li><p>包含在<script>元素内部的JavaScript代码将从上至下以此解释。在解释器对<script>元素内部所有代码求值完毕之前，页面中的其余内容都不会被浏览器加载或显示。</p>
+        <h4 id="在html中使用JavaScript"><a href="#在html中使用JavaScript" class="headerlink" title="在html中使用JavaScript"></a>在html中使用JavaScript</h4><h5 id="1、-lt-script-gt-元素嵌入代码"><a href="#1、-lt-script-gt-元素嵌入代码" class="headerlink" title="1、&lt;script&gt;元素嵌入代码"></a>1、<code>&lt;script&gt;</code>元素嵌入代码</h5><ul>
+<li><p>包含在<code>&lt;script&gt;</code>元素内部的JavaScript代码将从上至下以此解释。在解释器对<code>&lt;script&gt;</code>元素内部所有代码求值完毕之前，页面中的其余内容都不会被浏览器加载或显示。</p>
 </li>
-<li><p>在使用<script>嵌入JavaScript代码时，不要在代码任何地方出现 “<'/script>”字符串</p>
+<li><p>在使用<code>&lt;script&gt;</code>嵌入JavaScript代码时，不要在代码任何地方出现 “&lt;’/script&gt;”字符串</p>
 <p>eg：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"> 	alert(<span class="string">"&lt;/script&gt;"</span>);</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>这样就会出现错误，因为按照解析嵌入式代码的规则，当浏览器遇到字符串</script>时，会认为那是结束标签。需要通过转义字符“\”解决这个问题。<p></p>
-
-
-<h5 id="2、标签引入外部脚本文件"><a href="#2、标签引入外部脚本文件" class="headerlink" title="2、标签引入外部脚本文件"></a>2、<script>标签引入外部脚本文件</h5><ul>
-<li>带src属性的<script>元素不应该在其<script></script>标签里再包含JavaScript代码。因为如果包含了嵌入的代码，则只会下载并执行外部脚本文件，嵌入的代码则会被忽略。
+<p>这样就会出现错误，因为按照解析嵌入式代码的规则，当浏览器遇到字符串<code>&lt;/script&gt;</code>时，会认为那是结束标签。需要通过转义字符“\”解决这个问题。</p>
+</li>
+</ul>
+<h5 id="2、-lt-script-gt-标签引入外部脚本文件"><a href="#2、-lt-script-gt-标签引入外部脚本文件" class="headerlink" title="2、&lt;script&gt;标签引入外部脚本文件"></a>2、<code>&lt;script&gt;</code>标签引入外部脚本文件</h5><ul>
+<li>带src属性的<code>&lt;script&gt;</code>元素不应该在其<code>&lt;script&gt;&lt;/script&gt;</code>标签里再包含JavaScript代码。因为如果包含了嵌入的代码，则只会下载并执行外部脚本文件，嵌入的代码则会被忽略。</li>
 <li>src属性可以包含来自外部域的JavaScript文件。</li>
-<li>无论如何包含代码，只要不存在defer和async属性，浏览器都会按照<script>元素在页面中出现的先后顺序对他们一次进行解析。（第一个script标签解析后，第二个第三个...一次进行）</li>
+<li>无论如何包含代码，只要不存在defer和async属性，浏览器都会按照<code>&lt;script&gt;</code>元素在页面中出现的先后顺序对他们一次进行解析。（第一个script标签解析后，第二个第三个…一次进行）</li>
 </ul>
 <h5 id="3、标签的位置"><a href="#3、标签的位置" class="headerlink" title="3、标签的位置"></a>3、标签的位置</h5><ul>
-<li>把<script>标签放在<head>元素中，这种做法的目的是把所有外部文件的引用都放在同一个地方。但是在<head>元素中包含JavaScript文件，意味着必须等到所有的JavaScript代码都被下载、解析和执行完成后，才能呈现页面的内容。对于需要很多JavaScript代码的页面来说，会导致浏览器呈现页面时出现明显的延迟，而延迟期间浏览器的窗口将一片空白。</li>
-<li>为了避免以上所说的问题，一般将JavaScript引用在<body>元素中页面内容的后面。</li>
+<li>把<code>&lt;script&gt;</code>标签放在<code>&lt;head&gt;</code>元素中，这种做法的目的是把所有外部文件的引用都放在同一个地方。但是在<code>&lt;head&gt;</code>元素中包含JavaScript文件，意味着必须等到所有的JavaScript代码都被下载、解析和执行完成后，才能呈现页面的内容。对于需要很多JavaScript代码的页面来说，会导致浏览器呈现页面时出现明显的延迟，而延迟期间浏览器的窗口将一片空白。</li>
+<li>为了避免以上所说的问题，一般将JavaScript引用在<code>&lt;body&gt;</code>元素中页面内容的后面。</li>
 </ul>
 <h5 id="4、延迟脚本"><a href="#4、延迟脚本" class="headerlink" title="4、延迟脚本"></a>4、延迟脚本</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">defer</span>=<span class="string">"defer"</span> <span class="attr">src</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">defer</span>=<span class="string">"defer"</span> <span class="attr">src</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>defer属性表明脚本在执行时不会影响页面的构造，换句话说，脚本会被延迟到整个页面都解析完毕之后再运行。</p>
 <ul>
-<li><p>在这个例子中，虽然把<script>元素放在<head>元素中，但其包含的脚本将延迟到遇到</html>标签后再执行。 </p>
+<li><p>在这个例子中，虽然把<code>&lt;script&gt;</code>元素放在<code>&lt;head&gt;</code>元素中，但其包含的脚本将延迟到遇到<code>&lt;/html&gt;</code>标签后再执行。 </p>
 </li>
 <li><p>html5规范要求脚本按照他们出现的先后顺序执行，所以第一个延迟脚本会先于第二个延迟脚本执行，而这两个脚本会先于DOMContentLoaded事件执行。但在现实中，延迟脚本不一定会按照顺序执行，也不一定会在DOMContentLoaded事件触发之前执行。因此，最好只包含一个延迟脚本。</p>
 </li>
@@ -119,7 +119,7 @@
 <li>与defer不同的是，标记为async的脚本并不保证按照指定他们的先后顺序执行。</li>
 <li>指定async属性的目的是不让页面等待两个脚本下载和执行，从而异步加载页面其他内容。<strong>因此，建议异步脚本不要在加载期间修改DOM。</strong></li>
 </ul>
-<h5 id="6、noscript元素"><a href="#6、noscript元素" class="headerlink" title="6、noscript元素"></a>6、noscript元素</h5><p>包含在<noscript>元素中的内容只有在下列情况下才会显示出来：</p>
+<h5 id="6、noscript元素"><a href="#6、noscript元素" class="headerlink" title="6、noscript元素"></a>6、noscript元素</h5><p>包含在<code>&lt;noscript&gt;</code>元素中的内容只有在下列情况下才会显示出来：</p>
 <ul>
 <li>浏览器不支持脚本。</li>
 <li>浏览器支持脚本，但是脚本被禁用。</li>
@@ -169,8 +169,8 @@
 </li>
 <li><p>NaN（not a number）是一个特殊的数值，注意NaN！=NaN。</p>
 <ul>
-<li>alert(isNaN("10")) ;//true 字符串“10”可以转成数值。</li>
-<li>alert(isNaN("blue")); //false 字符串“blue”不可以转成数值。</li>
+<li>alert(isNaN(“10”)) ;//true 字符串“10”可以转成数值。</li>
+<li>alert(isNaN(“blue”)); //false 字符串“blue”不可以转成数值。</li>
 </ul>
 </li>
 <li><p>数值转换</p>
@@ -181,7 +181,7 @@
 <li>undefined——返回NaN</li>
 <li>浮点数——浮点数</li>
 <li>字符串<ul>
-<li>若字符串为为"011",则会变成11（前导零被忽略了）</li>
+<li>若字符串为为”011”,则会变成11（前导零被忽略了）</li>
 <li>若有有效的十六进制，则转换成对应大小的十进制数值</li>
 <li>若字符串是空的，则转成0</li>
 <li><strong>若包括除数字外还有其他字符，则转成NaN</strong></li>
@@ -195,10 +195,10 @@
 </li>
 <li><p>null——NaN</p>
 </li>
-<li><p>在ECMAScript 5 Javascript引擎中，parseInt()不具有解析八进制能力，前导零被认为无效。为消除困惑，可为该函数提供第二个参数。parseInt("70",8),则指定数值按照八进制解析。</p>
+<li><p>在ECMAScript 5 Javascript引擎中，parseInt()不具有解析八进制能力，前导零被认为无效。为消除困惑，可为该函数提供第二个参数。parseInt(“70”,8),则指定数值按照八进制解析。</p>
 <p>注意：如果第一个字符不是数字数值或者符号，会忽略前面的空格，知道找到第一个非空格字符。如果第一个字符不是数字或者符号，则会返回NaN，知道解析所有字符或者遇到非数字字符。</p>
-<p><img src="day2/3.jpg" alt=""></p>
-<p><img src="day2/4.jpg" alt=""></p>
+<p><img src="/.com//3.jpg" alt></p>
+<p><img src="/.com//4.jpg" alt></p>
 </li>
 </ul>
 </li>
@@ -231,11 +231,11 @@
 </ul>
 <h5 id="关系操作符"><a href="#关系操作符" class="headerlink" title="关系操作符"></a>关系操作符</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = <span class="string">"23"</span>&lt;<span class="string">"3"</span><span class="comment">//true</span></span><br><span class="line">因为两个操作数都是字符串，而字符串比较的是字符编码。（“<span class="number">2</span>”的字符编码是<span class="number">50</span>，“<span class="number">3</span>”的字符编码是<span class="number">51</span>）</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = <span class="string">"23"</span>&lt;<span class="number">3</span>;<span class="comment">//false</span></span><br><span class="line">这是，字符串“<span class="number">23</span>”会被转换成数值<span class="number">23</span>，然后再与<span class="number">3</span>进行比较。</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = <span class="string">"a"</span>&lt;<span class="number">3</span> <span class="comment">//false</span></span><br><span class="line">由于字符<span class="string">"a"</span>不能转换成合理的数值，因此被转换成<span class="literal">NaN</span>.根据规则，任何操作数与<span class="literal">NaN</span>进行关系比较都是<span class="literal">false</span>。</span><br></pre></td></tr></table></figure>
 
-</script></li></h5></h5>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/09/day2/" data-id="cjxvvbvpz0002zgvcyf8163ko" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/09/day2/" data-id="cjxvwapw20001z4vcqz1zop98" class="article-share-link">Share</a>
       
       
     </footer>
@@ -319,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/day1/" data-id="cjxvvbvpn0000zgvctbv9idkj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/day1/" data-id="cjxvwapvt0000z4vcfknttf3s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -368,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjxvvbvpw0001zgvcs29uimmx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjxvwapw50002z4vcwzlqpaxq" class="article-share-link">Share</a>
       
       
     </footer>
