@@ -5,15 +5,19 @@
   
 
   
-  <title>Hexo</title>
+  <title>day2 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="在html中使用JavaScript1、元素嵌入代码 包含在元素内部的JavaScript代码将从上至下以此解释。在解释器对元素内部所有代码求值完毕之前，页面中的其余内容都不会被浏览器加载或显示。  在使用嵌入JavaScript代码时，不要在代码任何地方出现 “">
+<meta property="og:type" content="article">
+<meta property="og:title" content="day2">
+<meta property="og:url" content="http://yoursite.com/2019/07/09/day2/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在html中使用JavaScript1、元素嵌入代码 包含在元素内部的JavaScript代码将从上至下以此解释。在解释器对元素内部所有代码求值完毕之前，页面中的其余内容都不会被浏览器加载或显示。  在使用嵌入JavaScript代码时，不要在代码任何地方出现 “">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-09T13:42:50.395Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="day2">
+<meta name="twitter:description" content="在html中使用JavaScript1、元素嵌入代码 包含在元素内部的JavaScript代码将从上至下以此解释。在解释器对元素内部所有代码求值完毕之前，页面中的其余内容都不会被浏览器加载或显示。  在使用嵌入JavaScript代码时，不要在代码任何地方出现 “">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-day2" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-day2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/09/day2/" class="article-date">
   <time datetime="2019-07-09T01:26:29.000Z" itemprop="datePublished">2019-07-09</time>
@@ -75,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/09/day2/">day2</a>
+    <h1 class="article-title" itemprop="name">
+      day2
     </h1>
   
 
@@ -241,144 +243,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-day1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/08/day1/" class="article-date">
-  <time datetime="2019-07-08T09:44:14.000Z" itemprop="datePublished">2019-07-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/08/day1/">day1</a>
-    </h1>
+    <a href="/2019/07/08/day1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">day1</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>### </p>
-<h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><ul>
-<li><p>hexo new “title”：新建标题为 title的文章。</p>
-</li>
-<li><p>hexo g ： 生成网站静态文件到默认设置的public文件夹</p>
-<ul>
-<li>便于查看网站生成的静态文件或者手动部署网站。</li>
-<li>hexo g 是hexo generate的缩写。</li>
-</ul>
-</li>
-<li><p>hexo s ：启用本地服务器，用于预览主题。默认地址为 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
-<ul>
-<li>hexo s 是hexo server 的缩写，命令效果一致。</li>
-<li>预览的同时可以修改文章内容或主题代码，保存后刷新页面即可。</li>
-</ul>
-</li>
-<li><p>hexo d ：自动生成网站静态文件，并部署到设定的仓库</p>
-<ul>
-<li>hexo d 是hexo deploy的缩写。</li>
-</ul>
-</li>
-</ul>
-<h3 id="git流程"><a href="#git流程" class="headerlink" title="git流程"></a>git流程</h3><p>1、克隆仓库</p>
-<p>git clone XXX</p>
-<p>git init</p>
-<p>2、先获取远程master分支的最新代码</p>
-<p>git checkout master</p>
-<p>git pull origin master</p>
-<p>3、创建分支</p>
-<p>git branch test</p>
-<p>4、切换分支</p>
-<p>git checkout test</p>
-<p>（3、4可合成 git checkout -b test）</p>
-<p>5、在完成步骤2，3后，就可以继续自己的工作（敲代码）</p>
-<p>6、完成工作后，就可以提交到自己的工作分支test</p>
-<p>git add .   （这个指令是指我们在工作区对文件做的修改放入暂存区，之后可以继续对该文件进行修改，但暂存区里面保存了该文件上一次放进去的样子）</p>
-<p>git commit -m “ 这里是解释 “  （将暂存区的文件提交到本地版本库）</p>
-<p><strong>1-6步骤，对git的操作都只是在本地进行，需要对代码的修改推到远程仓库，其他人才能看到修改后的代码</strong></p>
-<p>7、git push origin test</p>
-<p>8、此时该分支的代码还不在master分支中，避免merge失败，先将master分支上最新的代码 marge到当前分支。</p>
-<p>git pull –rebase origin master</p>
-<p>（如果有错误题是，则打开冲突文件，修改冲突</p>
-<p>git status：查看有冲突的文件</p>
-<p>调整好冲突文件后，git add .</p>
-<p>）</p>
-<p>9、git add .</p>
-<p>git rebase –continue</p>
-<p>git push origin test</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/day1/" data-id="cjxvvbvpn0000zgvctbv9idkj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/08/hello-world/" class="article-date">
-  <time datetime="2019-07-08T01:31:33.444Z" itemprop="datePublished">2019-07-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjxvvbvpw0001zgvcs29uimmx" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
