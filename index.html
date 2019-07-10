@@ -62,6 +62,154 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-day3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/10/day3/" class="article-date">
+  <time datetime="2019-07-10T01:15:21.000Z" itemprop="datePublished">2019-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/10/day3/">day3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h4><h5 id="1、for-in-语句"><a href="#1、for-in-语句" class="headerlink" title="1、for in 语句"></a>1、for in 语句</h5><p>概念：遍历数组或者对象的属性（对数组或者对象的属性进行循环操作）</p>
+<p>eg:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(变量 <span class="keyword">in</span> 对象)</span><br><span class="line">    <span class="comment">//“变量”用来指定变量，指定的变量可以是数组元素，也可以是对象的属性。</span></span><br><span class="line">&#123;</span><br><span class="line">    在此执行代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、label-语句"><a href="#2、label-语句" class="headerlink" title="2、label 语句"></a>2、label 语句</h5><p>使用label语句可以在代码中添加标签，以便将来使用。可以由break或continue语句引用。</p>
+<h5 id="3、switch语句"><a href="#3、switch语句" class="headerlink" title="3、switch语句"></a>3、switch语句</h5><p>注意：switch语句在比较值的时候，用的是全等操作符，因此不会发生类型转换。</p>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><h5 id="1、参数"><a href="#1、参数" class="headerlink" title="1、参数"></a>1、参数</h5><ul>
+<li>命名的参数只提供便利，但不是必需。</li>
+<li>ECMAScript函数不介意传递进来的参数多少个，什么类型。因为传进来的参数用一个数组来表示。在函数体内可以通过arguments对象来访问这个参数数组，从而获取传递给函数的每一个参数。</li>
+<li>arguments对象只是与数组类似（但不是数组），可以用方括号语法访问它的每一个元素，可以使用length属性确定传递进来几个参数。但是没有数组的其他特性。</li>
+</ul>
+<h5 id="2、不能重载"><a href="#2、不能重载" class="headerlink" title="2、不能重载"></a>2、不能重载</h5><p>重载：用同样的方法名，传递不同的参数，实现不同的目的。</p>
+<ul>
+<li>在ECMAScript中定义了两个名字相同的函数，则该名字只属于后定义的函数。</li>
+</ul>
+<hr>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>变量包含两种不同数据类型的值：</p>
+<ul>
+<li><p>基本类型值：简单的数据段。：五种基本数据类型，按值访问。（可给基本类型添加属性，但在下次访问该属性时，发现该属性会不见。）</p>
+</li>
+<li><p>引用类型值：可能由多个值构成的对象。可以动态的添加属性，以便将来使用。（添加属性时，如果对象不被销毁或者这个属性不被删除，则这个属性将一只存在。）<strong>值保存在内存中。</strong></p>
+<p><strong>注意：按引用访问：在js中不允许直接访问保存在堆内存中的对象，在访问一个对象时，首先得到的是这个对象在堆内存中的地址，再按照这个地址去获得这个对象的值。</strong></p>
+</li>
+</ul>
+<h5 id="复制变量值"><a href="#复制变量值" class="headerlink" title="复制变量值"></a>复制变量值</h5><ul>
+<li>基本类型值：如果从一个变量向另一个变量复制基本类型的值时，会在变量对象上创建一个新，然后把该值复制到为新变量分配的位置上。<strong>复制与被复制的变量是完全独立的，这两个变量可以参与任何操作而不会相互影响。</strong></li>
+<li>引用类型值：同样会将存储在变量对象中的值复制一份放到新变量分配的空间中，不同的是，这个值的副本实际上是一个指针，而这个指针指向存储在堆中的一个对象。<strong>复制结束后，两个变量实际上将引用同一个对象。</strong></li>
+</ul>
+<h5 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h5><p>ECMASCript中所有函数的参数都是按值传递的。</p>
+<h5 id="检测类型"><a href="#检测类型" class="headerlink" title="检测类型"></a>检测类型</h5><p>instanceof操作符，可以怕判断某个值是什么类型的对象</p>
+<p>eg</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(person <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">//person是object吗</span></span><br><span class="line">alert(colors <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</span><br><span class="line"><span class="comment">//如果使用instanceof操作符检测基本类型的值，则该操作符始终会返回false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="执行环境及作用域"><a href="#执行环境及作用域" class="headerlink" title="执行环境及作用域"></a>执行环境及作用域</h4><h5 id="1、作用域"><a href="#1、作用域" class="headerlink" title="1、作用域"></a>1、作用域</h5><ul>
+<li><p>作用域就是变量与函数的可访问范围，即作用域控制着变量与函数的可见性和生命周期。</p>
+</li>
+<li><p>作用：提高了程序的逻辑的局部性，增强程序的可靠性，以及避免命名冲突，为代码的模块化开发提供便利。</p>
+</li>
+</ul>
+<h5 id="2、作用域链"><a href="#2、作用域链" class="headerlink" title="2、作用域链"></a>2、作用域链</h5><p>每个函数都有自己的执行环境，包含当前环境的变量访问关系，与之相关联的就是“变量对象”，如果是当前函数的变量对象，也可以称之为“活动对象”。该对象包含了：当前函数可访问的变量及函数。</p>
+<p>eg </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> text = <span class="string">"test"</span>;</span><br><span class="line">    <span class="comment">//变量对象中包含：命名函数fn变量，参数name，内部变量test</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：变量对象是不可访问的，只提供后台引擎编译执行使用，当定义由多个变量对象嵌套，这些变量对象就组成了作用域链。</p>
+<p>eg</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"global"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">super</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"super"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sub</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> name = <span class="string">"sub"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的例子构成的作用域链为：</p>
+<p>全局变量对象window——&gt; 变量对象super——&gt; 活动对象sub</p>
+<p>变量访问原则是，根据作用域前端往上搜索，如果提前搜索到变量，就停止搜索，例如上面的例子中，name变量的值是sub，因为其再最前端的变量对象中就已经定义了，则不会往上继续检索。</p>
+<h5 id="3、延长作用域"><a href="#3、延长作用域" class="headerlink" title="3、延长作用域"></a>3、延长作用域</h5><p>1、try-catch语句的catch块</p>
+<p>2、with语句(不用)</p>
+<h5 id="4、执行环境只与函数的声明及定义位置有关"><a href="#4、执行环境只与函数的声明及定义位置有关" class="headerlink" title="4、执行环境只与函数的声明及定义位置有关"></a>4、执行环境只与函数的声明及定义位置有关</h5><p>当一个函数定义后，其执行环境与作用域链就已经确定了，不会因为执行位置改变而改变。</p>
+<hr>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><h4 id="1、object类型"><a href="#1、object类型" class="headerlink" title="1、object类型"></a>1、object类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person =&#123;&#125; <span class="comment">//相当于 new Object();</span></span><br><span class="line"><span class="comment">//访问对象的属性</span></span><br><span class="line">person[<span class="string">"name"</span>];</span><br><span class="line">person.name;</span><br><span class="line">person[<span class="string">"first name"</span>]</span><br><span class="line"><span class="comment">//由于first name含有空格，用点访问会出错，可以用方括号表示来访问。</span></span><br><span class="line"><span class="comment">//通常情况下，除非必须用变量来访问属性，否则建议用点表示法。</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2、Array类型"><a href="#2、Array类型" class="headerlink" title="2、Array类型"></a>2、Array类型</h5><ul>
+<li>数组的length不仅仅只读，还可以进行修改，若数组含有三个元素，将length改成2，则最后一个元素将会被移除。</li>
+</ul>
+<h6 id="检测数组"><a href="#检测数组" class="headerlink" title="检测数组"></a>检测数组</h6><ul>
+<li>instanceof操作符的问题在于，它假定只有一个全局执行环境，如果一个网页中包含多个框架，那实际上存在两个以上不同的全局执行环境，从而存在两个以上不同版本的Array构造函数。如果从一个框架向另一个框架传入一个数组，那么传入的数组与在第二个框架中原生创建的数组分别具有各自不同的构造函数</li>
+<li>为了解决上述问题，新增了Array.isArray()方法，这个方法目的是最终确定某个值是不是数组，而不管它在在哪个全局执行环境中创建的。</li>
+</ul>
+<h6 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h6><ul>
+<li><p>所有对象都有toLocaleString()、toString()、valueOf()方法。</p>
+<p>eg</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = [<span class="string">"red"</span>,<span class="string">"blue"</span>,<span class="string">"green"</span>];</span><br><span class="line">alert(colors.toString());<span class="comment">//red,blue,green</span></span><br><span class="line">alert(colors.valueOf());<span class="comment">//red,blue,green</span></span><br><span class="line">alert(colors);<span class="comment">//red,blue,green</span></span><br></pre></td></tr></table></figure>
+
+<p>显式的调用toString()方法，每个值的字符串表示拼接成了一个字符串，中间要用逗号分隔。</p>
+<p>由于alert()要接受字符串参数，所以它在后台调用toString()方法，由此会得到与直接调用toString()方法相同的结果。</p>
+</li>
+<li><p>join()方法，可以用不同的分隔符来构建这个字符串。</p>
+<p>eg</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = [<span class="string">"red"</span>,<span class="string">"green"</span>,<span class="string">"blue"</span>];</span><br><span class="line">colors.join(<span class="string">"||"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果数组中某一项的值是null或者undefined，那么该值在join(),toLocaleString(),toString(),valueOf()方法返回的结果中以空字符串表示。</p>
+</li>
+</ul>
+<h6 id="栈方法"><a href="#栈方法" class="headerlink" title="栈方法"></a>栈方法</h6><ul>
+<li><p>shift()：从头部删除一个值</p>
+</li>
+<li><p>unshift()：从头部添加一个值</p>
+</li>
+<li><p>pop()：在末尾减去一个值</p>
+</li>
+<li><p>push()：在末尾加上一个值</p>
+</li>
+<li><p>reverse()：反转数组值的顺序</p>
+</li>
+<li><p>sort()：升序排序数组项。</p>
+<p>注意：数值5&gt;10 但是在字符串比较时，“10”在“5”前面，于是数组的顺序就被修改了。</p>
+<p>sort()方法可以接收一个比函数作为参数，以便我们指定哪个值在前面。</p>
+<p>eg</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">value1,value2</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(value1&lt;value2)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(value1&gt;value2)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> values = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>];</span><br><span class="line">values.sort(compare);</span><br><span class="line">alert(values);<span class="comment">//则是按小到大排序</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>concat()：这个方法会先创建当前数组的一个副本，然后将接受到的参数添加到这个副本的末尾，最后返回新构建的数组。</p>
+</li>
+<li><p>slice()</p>
+<p>eg:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、colors.slice(<span class="number">1</span>)<span class="comment">//从位置1开始复制，到结束</span></span><br><span class="line"><span class="number">2</span>、colors.slice(<span class="number">1</span>,<span class="number">4</span>)<span class="comment">//从位置1开始复制，包含四项的新数组</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>splice</p>
+<p>eg:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">splice(<span class="number">0</span>,<span class="number">2</span>)<span class="comment">//删除数组前两项</span></span><br><span class="line">splice(<span class="number">2</span>,<span class="number">0</span>,<span class="string">"red"</span>,<span class="string">"green"</span>)<span class="comment">//从数组位置2开始插入字符串“red”和“green”</span></span><br><span class="line">splice(<span class="number">2</span>,<span class="number">1</span>,<span class="string">"red"</span>,<span class="string">"green"</span>)<span class="comment">//会删除当前数组位置2的项，然后从位置2开始插入字符串。</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/10/day3/" data-id="cjxx919me0003ekvcpywkfmnp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-day2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/09/day2/" class="article-date">
@@ -199,6 +347,8 @@
 <p>注意：如果第一个字符不是数字数值或者符号，会忽略前面的空格，知道找到第一个非空格字符。如果第一个字符不是数字或者符号，则会返回NaN，知道解析所有字符或者遇到非数字字符。</p>
 <p><img src="/.com//3.jpg" alt></p>
 <p><img src="/.com//4.jpg" alt></p>
+<p><img src="/.com//1.jpg" alt></p>
+<p><img src="/.com//2.jpg" alt></p>
 </li>
 </ul>
 </li>
@@ -206,10 +356,6 @@
 </li>
 </ul>
 </li>
-</ul>
-<pre><code>![](day2/1.jpg)
-
-![](day2/2.jpg)</code></pre><ul>
 <li><p>“object”——对象或null（特殊值null被认为是一个空对象指针）</p>
 <p>对象：一组数据和功能的集合。</p>
 </li>
@@ -235,7 +381,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/09/day2/" data-id="cjxvwmplp0001z4vcspf4fofs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/09/day2/" data-id="cjxx919m50002ekvcwsru57xv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -319,7 +465,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/day1/" data-id="cjxvwmplh0000z4vc2k0z6doh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/day1/" data-id="cjxx919lr0000ekvc65nmgbiu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -368,7 +514,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjxvwmplr0002z4vczd5pbjbf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjxx919m20001ekvcqsebrv5l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -407,6 +553,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/07/10/day3/">day3</a>
+          </li>
         
           <li>
             <a href="/2019/07/09/day2/">day2</a>
