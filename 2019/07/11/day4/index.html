@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>day4 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Date类型1、调用Date构造函数而不必传递参数情况下，新创建的对象自动获得当前日期和时间。 2、Date.now()方法，返回表示调用这个方法时的日期和时间的毫秒数。 3、和其他引用类型一样，Date重写了toString(),toLocaleString,valueOf()方法。  toLocaleString：按照与浏览器设置的地区相适应的格式返回日期和时间 toString：返回带有时区">
+<meta property="og:type" content="article">
+<meta property="og:title" content="day4">
+<meta property="og:url" content="http://yoursite.com/2019/07/11/day4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Date类型1、调用Date构造函数而不必传递参数情况下，新创建的对象自动获得当前日期和时间。 2、Date.now()方法，返回表示调用这个方法时的日期和时间的毫秒数。 3、和其他引用类型一样，Date重写了toString(),toLocaleString,valueOf()方法。  toLocaleString：按照与浏览器设置的地区相适应的格式返回日期和时间 toString：返回带有时区">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-11T13:20:13.279Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="day4">
+<meta name="twitter:description" content="Date类型1、调用Date构造函数而不必传递参数情况下，新创建的对象自动获得当前日期和时间。 2、Date.now()方法，返回表示调用这个方法时的日期和时间的毫秒数。 3、和其他引用类型一样，Date重写了toString(),toLocaleString,valueOf()方法。  toLocaleString：按照与浏览器设置的地区相适应的格式返回日期和时间 toString：返回带有时区">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-day4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/11/day4/" class="article-date">
+  <time datetime="2019-07-11T01:01:15.000Z" itemprop="datePublished">2019-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      day4
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="Date类型"><a href="#Date类型" class="headerlink" title="Date类型"></a>Date类型</h5><p>1、调用Date构造函数而不必传递参数情况下，新创建的对象自动获得当前日期和时间。</p>
+<p>2、Date.now()方法，返回表示调用这个方法时的日期和时间的毫秒数。</p>
+<p>3、和其他引用类型一样，Date重写了toString(),toLocaleString,valueOf()方法。</p>
+<ul>
+<li>toLocaleString：按照与浏览器设置的地区相适应的格式返回日期和时间</li>
+<li>toString：返回带有时区信息的日期和时间，使劲按一般以军用时间（小时范围0-23）</li>
+<li>valueOf：不返回字符串，而是返回日期的毫秒数。因此可以用比较操作符来比较日期。使用alert（）时，后台会自动使用valueOf。</li>
+</ul>
+<p>4、toUTCString()：以特定于实现的格式完整的UTC日期。（推荐使用）</p>
+<h5 id="RexExp类型"><a href="#RexExp类型" class="headerlink" title="RexExp类型"></a>RexExp类型</h5><p>ECMAScript通过RegExp类型来支持正则表达式。</p>
+<p>eg：正则表达式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> expression = <span class="regexp">/ pattern /</span> flags;<span class="comment">//类似Perl语法</span></span><br></pre></td></tr></table></figure>
+
+<p>pattern部分可带有一个或多个标志（flags），用以标明正则表达式的行为。正则表达式的匹配模式支持下列3个标志。</p>
+<ul>
+<li>g：表示全局模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止。</li>
+<li>i：表示不区分大小写（case-insensitive）模式，即在确定匹配项时忽略模式与字符串 的大小写。</li>
+<li>m：表示多行（multiple）模式，即在到达一行文本末尾时还会继续查找下一行是否存在与模式匹配的项。</li>
+</ul>
+<p>1、元字符：（   {   [    \     ^    $   |    )  ?    *    +    .    ]   }   </p>
+<p>这些元字符在正则表达式中都有一或多种特殊用途，因此如果想要匹配字符串中包含的这些字符，就必须对他们进行转义。</p>
+<p>2、由于RegExp构造函数的模式参数是字符串，所以在某些情况下，要对字符串进行双重转义。</p>
+<p>eg：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pattern1 = <span class="regexp">/\[bc\]at/i</span>;<span class="comment">//表示匹配第一个[bc]at，不分大小写</span></span><br><span class="line"><span class="keyword">var</span> pattern2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\[bc\\]at"</span>,<span class="string">"i"</span>)<span class="comment">//双重转义。</span></span><br><span class="line"><span class="comment">//pattern1和pattern2相同，只不过是2是构造函数构建的。</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h6><ul>
+<li><p>global：布尔值，表示是否设置了g标志</p>
+</li>
+<li><p>ignoreCase：布尔值，表示是否设置了i标志</p>
+</li>
+<li><p>lastIndex：整数，表示开始搜下下一个匹配项的字符位置，从0算起。</p>
+</li>
+<li><p>multiline：布尔值，表示是否设置了m标志</p>
+</li>
+<li><p>source：正则表达式的字符串表示，按照字面量形式而非传入构造函数中的字符串模式返回</p>
+<p>eg:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pattern2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\[bc\\]at"</span>,<span class="string">"i"</span>);</span><br><span class="line">alert(pattern2.global);<span class="comment">//false</span></span><br><span class="line">alert(pattern2.ignoreCase);<span class="comment">//true</span></span><br><span class="line">alert(pattern2.multiline);<span class="comment">//false</span></span><br><span class="line">alert(pattern2.lastIndex);<span class="comment">//0</span></span><br><span class="line">alert(pattern2.source);<span class="comment">//"\[bc\]at"</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h6 id="RegExp实例方法"><a href="#RegExp实例方法" class="headerlink" title="RegExp实例方法"></a>RegExp实例方法</h6><ul>
+<li><p>exec()方法：用于检索字符串中的正则表达式的匹配，返回值是一个数组，但该数组的内容和正则对象是否是全局匹配有很大关系。</p>
+<p>1、没有g修饰符：在非全局匹配模式下，此函数的作用和match()函数一样，只能够在字符串中匹配一次，如果没有找到匹配的字符串，那么返回null，否则返回一个数组，<strong>数组的第0个元素存储的是匹配字符串，第1个元素存放的是第一个子表达式（正则中用（）包住的部分）匹配的字符串，以此类推。</strong>同时该数组包括两个对象属性，index属性表明匹配字符串的其实字符在要匹配的完整字符串中的位置，input属性声明的是对要匹配的完整字符串的引用。</p>
+<p>2、有g修饰符：在全局匹配模式下，此函数返回值同样是一个数组，并且也只能匹配一次，不过此时，此函数一般会和lastIndex属性匹配使用，此函数会在lastIndex属性指定的字符处开始检索字符串，当exec()找到与表达式相匹配的字符串时，在匹配后，它将<strong>lastIndex属性设置为匹配字符串的最后一个字符的下一个位置</strong>。可以丰富调用exec()函数遍历字符串中所有的匹配，知道再也找不到匹配的文本，它将返回null，并将lastIndex属性重置为0.</p>
+<p>注：数组的内容结构和没有g修饰符完全相同。</p>
+<p>eg：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="string">"abbb34eftab0modabbbbbbb6"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/a(b)+(\d+)/i</span>;</span><br><span class="line"><span class="keyword">var</span> arr = str.match(reg);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">document</span>.write(arr[i]);</span><br><span class="line">    <span class="comment">//如果是g全局，那么返回所有匹配[abbb34,ab0,abbbbbbb6]</span></span><br><span class="line">    <span class="comment">//如果没有g全局，那么返回arr[0],后面则是字表达式的捕获。[abbb34,b,34]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h5 id="函数声明与函数表达式"><a href="#函数声明与函数表达式" class="headerlink" title="函数声明与函数表达式"></a>函数声明与函数表达式</h5><ul>
+<li><p>函数声明：解析器会率先读取函数声明，并使其在执行任何代码之前可用（可以访问）。</p>
+</li>
+<li><p>函数表达式：必须等到解析器执行到它所在的代码行，才会真正被解析。</p>
+<p>eg</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">alert(sum(<span class="number">10</span>,<span class="number">10</span>));</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1,num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1+num2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这样可以使用。</span></span><br><span class="line"></span><br><span class="line">alert(sum(<span class="number">10</span>,<span class="number">10</span>));</span><br><span class="line">sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1,num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1+num2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//会出错。</span></span><br></pre></td></tr></table></figure>
+
+<p>原因：第一个是函数声明，在代码开始执行前，解析器就通过一个名为函数声明提升的过程，读取并将函数声明添加到执行环境中。对代码求值时，JavaScript引擎在第一遍声明函数并将它们放在源代码树的顶部。</p>
+<p>而第二个不是</p>
+</li>
+</ul>
+<h6 id="函数内部属性"><a href="#函数内部属性" class="headerlink" title="函数内部属性"></a>函数内部属性</h6><ul>
+<li>arguments</li>
+<li>callee：是arguments的一个属性，该属性是一个指针，值向拥有这个arguments对象的函数。不能为这个属性赋值，否则会发生错误。</li>
+<li>this：函数执行的环境对象——或者可以说是this值（当在页面的全局作用域中调用函数时，this对象引用的就是window）</li>
+</ul>
+<p>注意：函数的名字仅仅是一个包含指针的变量。</p>
+<h6 id="函数的属性和方法"><a href="#函数的属性和方法" class="headerlink" title="函数的属性和方法"></a>函数的属性和方法</h6><ul>
+<li><p>属性</p>
+<ul>
+<li><p>length：函数希望接收的命名参数的个数。</p>
+</li>
+<li><p>prototype（原型）：为一个特定类声明通用的变量或者函数。</p>
+<p><a href="https://www.cnblogs.com/dengpeng1004/p/5317245.html" target="_blank" rel="noopener">博客</a></p>
+</li>
+</ul>
+</li>
+<li><p>方法：</p>
+<ul>
+<li>apply()：接收两个参数，一个是在其中运行函数的作用域，另一个是参数数组。</li>
+<li>call()：</li>
+</ul>
+<p>作用：可以扩充函数赖以运行的作用域</p>
+</li>
+</ul>
+<h6 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h6><p>注意：使用new调用基本包装类型的构造函数，和直接调用同名的转型函数是不一样的。</p>
+<p>eg：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="string">"25"</span>;</span><br><span class="line"><span class="keyword">var</span> number = <span class="built_in">Number</span>(value);<span class="comment">//转型函数</span></span><br><span class="line">alert (<span class="keyword">typeof</span> number);<span class="comment">//"number"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> value = <span class="string">"25"</span>;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Number</span>(value);<span class="comment">//构造函数</span></span><br><span class="line">alert (<span class="keyword">typeof</span> obj);<span class="comment">//"object"</span></span><br><span class="line"><span class="comment">//在这个例子中，number保存的是基本类型的值，而obj保存的是Number的实例。</span></span><br></pre></td></tr></table></figure>
+
+<p>自动创建的基本包装类型的对象，则只存在于一行代码的执行瞬间，然后立刻被销毁。</p>
+<p>eg</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="string">"some text"</span>;</span><br><span class="line">s1.color = <span class="string">"red"</span>;</span><br><span class="line">alert(s1.color)<span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>第二行代试图为字符串s1添加一个属性，但是，当第三行代码再次访问s1时，其color属性不见了。原因是第二行创建的String对象，在执行第三行代码时已经被销毁了。第三行代码又创建了自己的String对象。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/11/day4/" data-id="cjxypa0is0001oovcn6btkcrb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/10/day3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">day3</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/11/day4/">day4</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/10/day3/">day3</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/09/day2/">day2</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/08/day1/">day1</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/08/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

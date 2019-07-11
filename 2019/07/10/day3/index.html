@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="语句1、for in 语句概念：遍历数组或者对象的属性（对数组或者对象的属性进行循环操作） eg: 12345for(变量 in 对象)    //“变量”用来指定变量，指定的变量可以是数组元素，也可以是对象的属性。&amp;#123;    在此执行代码&amp;#125;  2、label 语句使用label语句可以在代码中添加标签，以便将来使用。可以由break或continue语句引用。 3、switch">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-10T12:57:38.579Z">
+<meta property="og:updated_time" content="2019-07-11T01:39:42.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="day3">
 <meta name="twitter:description" content="语句1、for in 语句概念：遍历数组或者对象的属性（对数组或者对象的属性进行循环操作） eg: 12345for(变量 in 对象)    //“变量”用来指定变量，指定的变量可以是数组元素，也可以是对象的属性。&amp;#123;    在此执行代码&amp;#125;  2、label 语句使用label语句可以在代码中添加标签，以便将来使用。可以由break或continue语句引用。 3、switch">
@@ -198,11 +198,45 @@
 
 </li>
 </ul>
+<h6 id="位置方法"><a href="#位置方法" class="headerlink" title="位置方法"></a>位置方法</h6><ul>
+<li>indexOf()和lastIndexOd()：接收两个参数：要查找的参数和（可选）查找起点的索引。</li>
+<li>indexOf：从数组开头(位置0)开始向后查找。</li>
+<li>lastIndexOf：从数组末尾开始向前查找。</li>
+<li>这两个方法都返回要查找的项在数组中的位置，或者在没有找到的情况下返回-1.<strong>在比较第一个参数与数组中每一项时，会用全等操作符。</strong></li>
+</ul>
+<h6 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h6><p>每个方法都要接收两个参数：要在每一项上运行的函数和（可选）运行该函数的作用域对象。传入这些方法的函数会接收三个参数：数组项的值、该项在数组中的位置、数组对象本身。</p>
+<ul>
+<li><p>every()</p>
+</li>
+<li><p>some()</p>
+<p>eg:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</span><br><span class="line"><span class="keyword">var</span> everyResult = numbers.every(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (item&gt;<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line">)</span><br><span class="line">alert(everyResult)<span class="comment">//false,要全部符合条件才会返回true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> someResult = numbers.some(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (item&gt;<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line">)</span><br><span class="line">alert(someResult)<span class="comment">//true，只要只有一个符合条件就会返回true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>filter()：利用指定的函数，确定是否在返回的数组中包含某一项</p>
+<p>eg</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];</span><br><span class="line"><span class="keyword">var</span> filterResult = numbers.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (item&gt;<span class="number">2</span>);</span><br><span class="line">&#125;);</span><br><span class="line">alert(filterResult);<span class="comment">//[3,4,5,4,3];</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>map()：可以返回在原始对象上进行操作（相乘等等）的数组。</p>
+</li>
+<li><p>forEach()：没有返回值，类似于for循环。</p>
+</li>
+</ul>
+<h6 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h6><ul>
+<li><p>reduce()和reduceRight()：迭代数组的所有项，然后构建一个最终返回的值。其中，reduce方法从数组第一项开始，逐个遍历到最后，而reduceRight()则从数组最后一项开始，向前遍历到第一项。</p>
+</li>
+<li><p>这两个方法都接收两个参数：一个在每一项上调用的函数和（可选）作为归并基础的初始值。传入的函数接收四个参数：前一个值，当前值，项的索引，数组对象。</p>
+<p>eg：利用reduce求和</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> values =[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> sum = values.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">pre,cur,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> prev+cur;</span><br><span class="line">&#125;);</span><br><span class="line">alert(sum);</span><br><span class="line"><span class="comment">//第一次执行回调函数，pre是1，cur是2，第二次执行，pre是3（1+2的值），cur是3（第三项的值）。</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/10/day3/" data-id="cjxx919me0003ekvcpywkfmnp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/10/day3/" data-id="cjxypa0j80002oovcjjg8xl7a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -210,6 +244,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/07/11/day4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          day4
+        
+      </div>
+    </a>
   
   
     <a href="/2019/07/09/day2/" id="article-nav-older" class="article-nav-link-wrap">
@@ -249,6 +292,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/07/11/day4/">day4</a>
+          </li>
         
           <li>
             <a href="/2019/07/10/day3/">day3</a>
