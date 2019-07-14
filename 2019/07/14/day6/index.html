@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>day6 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、JS中new一个对象的过程var obj = new ClassA(); 1、创建空对象； var obj = {}; 2、设置新对象的constructor属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的prototype对象 obj.__proto__ = ClassA.prototype; 3、使用新对象调用函数，函数中this被指向新实例对象 ClassA.cal">
+<meta property="og:type" content="article">
+<meta property="og:title" content="day6">
+<meta property="og:url" content="http://yoursite.com/2019/07/14/day6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、JS中new一个对象的过程var obj = new ClassA(); 1、创建空对象； var obj = {}; 2、设置新对象的constructor属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的prototype对象 obj.__proto__ = ClassA.prototype; 3、使用新对象调用函数，函数中this被指向新实例对象 ClassA.cal">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-14T12:51:54.634Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="day6">
+<meta name="twitter:description" content="1、JS中new一个对象的过程var obj = new ClassA(); 1、创建空对象； var obj = {}; 2、设置新对象的constructor属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的prototype对象 obj.__proto__ = ClassA.prototype; 3、使用新对象调用函数，函数中this被指向新实例对象 ClassA.cal">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-day6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/14/day6/" class="article-date">
+  <time datetime="2019-07-14T01:02:34.000Z" itemprop="datePublished">2019-07-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      day6
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1、JS中new一个对象的过程"><a href="#1、JS中new一个对象的过程" class="headerlink" title="1、JS中new一个对象的过程"></a>1、JS中new一个对象的过程</h5><p>var obj = new ClassA();</p>
+<p>1、创建空对象；</p>
+<p>var obj = {};</p>
+<p>2、设置新对象的constructor属性为构造函数的名称，设置新对象的<code>__proto__</code>属性指向构造函数的prototype对象</p>
+<p><code>obj.__proto__ = ClassA.prototype</code>;</p>
+<p>3、使用新对象调用函数，函数中this被指向新实例对象</p>
+<p>ClassA.call(obj);</p>
+<p>4、将初始化完毕的新对象地址，保存到等号左边的变量中。</p>
+<h5 id="2、关于原型一些总结"><a href="#2、关于原型一些总结" class="headerlink" title="2、关于原型一些总结"></a>2、关于原型一些总结</h5><p>1、原型属性中若有引用值类型，对实例进行修改，原型中该数值也会被修改。</p>
+<p>而基本类型值不会被修改。</p>
+<p>2、每个函数都有一个prototype属性，这个属性指向一个对象，这个对象我们叫做原型对象。</p>
+<p>3、</p>
+<ul>
+<li>每个对象都有一个<code>__proto__</code>属性</li>
+<li><code>__proto__</code>指向创建自己的那个构造函数的原型对象。</li>
+<li>对象可以直接访问<code>__proto__</code>里面的属性和方法。</li>
+</ul>
+<p>4、constructor指向创建自己的那个构造函数。</p>
+<h5 id="3、闭包"><a href="#3、闭包" class="headerlink" title="3、闭包"></a>3、闭包</h5><p>闭包：有权访问另一个函数作用域中的变量的函数。</p>
+<p>闭包只能取得包含函数中任何变量的最后一个值。</p>
+<p>闭包保存的是整个变量对象，而不是某个特殊的变量。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/14/day6/" data-id="cjy2yky7j0004ekvcks1bunvw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/12/day5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">day5</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/14/day6/">day6</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/12/day5/">day5</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/11/day4/">day4</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/10/day3/">day3</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/09/day2/">day2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
