@@ -62,6 +62,96 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-day7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/15/day7/" class="article-date">
+  <time datetime="2019-07-15T01:06:13.000Z" itemprop="datePublished">2019-07-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/15/day7/">day7</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="作用域的控制机制"><a href="#作用域的控制机制" class="headerlink" title="作用域的控制机制"></a>作用域的控制机制</h4><p>1、每个函数都有各自的作用域，作用域链，变量对象，执行环境。</p>
+<p>其中，作用域链在函数初始化完成后便存在，而作用域，变量对象，执行环境只有在函数执行时才创建。</p>
+<p>执行结束后，<strong>函数的作用域，作用域链，执行环境被销毁</strong>，而变量对象仍可能留在内存中。（如果函数内部有闭包，则函数执行结束后，变量对象仍然留在内存，知道闭包执行结束，该变量对象才会被销毁。）</p>
+<p>2、作用域链</p>
+<ul>
+<li>把多个作用域串起来便形成了作用域链</li>
+<li>每个函数在初始化完成后就拥有了各自的作用域链，但此时作用域链中并不包含自己的作用域，只有函数执行时，才会创建自己的作用域，并加在作用域的开头。</li>
+<li>作用域链中不仅存储了函数本身的作用域，还存储了该函数能够访问的其他函数的作用域。</li>
+</ul>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><p>1、概念：闭包是函数和引用环境组成的整体。环境包含了这个闭包创建时所能访问的所有局部变量。</p>
+<p>函数是一些可执行代码，这些代码在函数被定义后就确定了，不会在执行时发生变化，所以一个函数只有一个实例。闭包在运行时可以有多个实例，不同的引用环境和相同的环境组合可以产生不同的实例。</p>
+<p>2、作用：</p>
+<ul>
+<li>可以在函数的外部访问到函数内部的局部变量。</li>
+<li>让这些变量始终保存在内存中，不会随着函数的结束而自动销毁。</li>
+</ul>
+<p>3、函数表达式声明方式并且声明后加上了()，所以会自动执行一次。</p>
+<p><a href="https://blog.csdn.net/u010425776/article/details/53557942" target="_blank" rel="noopener">1</a></p>
+<p><a href="https://blog.csdn.net/u010425776/article/details/53617292" target="_blank" rel="noopener">2</a></p>
+<p><a href="https://blog.csdn.net/u010425776/article/details/53704179" target="_blank" rel="noopener">3</a></p>
+<h4 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h4><p>Ajax是一种无需重新加载整个网页的情况下，能够更新部分网页的技术。</p>
+<h6 id="1、XMLHttpRequest对象"><a href="#1、XMLHttpRequest对象" class="headerlink" title="1、XMLHttpRequest对象"></a>1、XMLHttpRequest对象</h6><p>Ajax核心是XMLHttpRequest对象（XHR），XHR向服务器发送请求和解析服务器响应提供了接口，能够以异步方式从服务器获取新数据。</p>
+<p>XHR的主要属性：</p>
+<ul>
+<li>Number readyState 状态值<ul>
+<li>0：未初始化。未调用open()方法。</li>
+<li>1：启动。已经调用open()方法，为调用send()方法。</li>
+<li>2：发送。已经调用send()方法，为接受到响应。</li>
+<li>3：接受。已经接受到部分数据。</li>
+<li>4：完成。已经接受到全部数据，可以在客户端使用。</li>
+</ul>
+</li>
+<li>向服务器发送请求，使用XMR对象的open和send方法。<ul>
+<li>open(method,url,async)<ul>
+<li>method：请求的类型，get或者post</li>
+<li>url：文件在服务器上的位置</li>
+<li>async：true（异步）或false（同步）</li>
+</ul>
+</li>
+<li>send(string)：将请求发送到服务器。<ul>
+<li>string：仅用于post请求</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="2、Get请求"><a href="#2、Get请求" class="headerlink" title="2、Get请求"></a>2、Get请求</h6><p>Get用于向服务器查询某些信息</p>
+<h6 id="3、post请求"><a href="#3、post请求" class="headerlink" title="3、post请求"></a>3、post请求</h6><p>post请求用于向服务器发送应该被保存的数据。post请求的主体可以包含非常多的数据，而且格式不限。</p>
+<p>注意：在一下情况下，使用post请求</p>
+<ul>
+<li>无法使用缓存文件（更新服务器上的文件或数据库）</li>
+<li>向服务器发送大量数据（post没有数据量限制）</li>
+<li>发送包含未知字符的用户输入时，post比get更稳定可靠。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/15/day7/" data-id="cjy4fdo6s0002k0vc8lw7i8an" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-day6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/14/day6/" class="article-date">
@@ -109,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/14/day6/" data-id="cjy2yky7j0004ekvcks1bunvw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/14/day6/" data-id="cjy4fdo6l0000k0vct7exv5ag" class="article-share-link">Share</a>
       
       
     </footer>
@@ -193,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/12/day5/" data-id="cjy2yky770000ekvccq0kc91e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/12/day5/" data-id="cjy4fdo6v0005k0vc1yytrnsp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -325,7 +415,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/11/day4/" data-id="cjy2yky7i0003ekvc2be0rxlz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/11/day4/" data-id="cjy4fdo6t0003k0vcqsdgpamw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -507,7 +597,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/10/day3/" data-id="cjy2yky7w0006ekvch21zstgr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/10/day3/" data-id="cjy4fdo780007k0vcltguz90p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -688,7 +778,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/09/day2/" data-id="cjy2yky7h0002ekvclv0dgkb5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/09/day2/" data-id="cjy4fdo6q0001k0vc9w5q65lx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -772,7 +862,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/day1/" data-id="cjy2yky7f0001ekvcosxaz5ee" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/day1/" data-id="cjy4fdo6u0004k0vc7njll86n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -821,7 +911,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjy2yky7k0005ekvcn26rwenb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjy4fdo6w0006k0vc9dtuigiy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -862,6 +952,10 @@
       <ul>
         
           <li>
+            <a href="/2019/07/15/day7/">day7</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/14/day6/">day6</a>
           </li>
         
@@ -875,10 +969,6 @@
         
           <li>
             <a href="/2019/07/10/day3/">day3</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/09/day2/">day2</a>
           </li>
         
       </ul>
