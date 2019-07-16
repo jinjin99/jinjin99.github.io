@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>day8 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Canvas1&amp;lt;canvas id=&quot;&quot; width=&quot;100&quot; height=&quot;150&quot;&amp;gt;&amp;lt;/canvas&amp;gt;  canvas标签只有两个属性，width和height，这些都是可选的。但没有设置宽度和高度时，canvas会初始化宽度为300像素和高度为150像素。该元素可以使用css来定义大小，但是在绘制图形时会伸缩以适应它的框架尺寸，如果css尺寸与初始画布比例不一致，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="day8">
+<meta property="og:url" content="http://yoursite.com/2019/07/16/day8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Canvas1&amp;lt;canvas id=&quot;&quot; width=&quot;100&quot; height=&quot;150&quot;&amp;gt;&amp;lt;/canvas&amp;gt;  canvas标签只有两个属性，width和height，这些都是可选的。但没有设置宽度和高度时，canvas会初始化宽度为300像素和高度为150像素。该元素可以使用css来定义大小，但是在绘制图形时会伸缩以适应它的框架尺寸，如果css尺寸与初始画布比例不一致，">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-16T14:37:59.935Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="day8">
+<meta name="twitter:description" content="Canvas1&amp;lt;canvas id=&quot;&quot; width=&quot;100&quot; height=&quot;150&quot;&amp;gt;&amp;lt;/canvas&amp;gt;  canvas标签只有两个属性，width和height，这些都是可选的。但没有设置宽度和高度时，canvas会初始化宽度为300像素和高度为150像素。该元素可以使用css来定义大小，但是在绘制图形时会伸缩以适应它的框架尺寸，如果css尺寸与初始画布比例不一致，">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-day8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/16/day8/" class="article-date">
+  <time datetime="2019-07-16T01:08:06.000Z" itemprop="datePublished">2019-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      day8
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"150"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>canvas标签只有两个属性，width和height，这些都是可选的。但没有设置宽度和高度时，canvas会初始化宽度为300像素和高度为150像素。该元素可以使用css来定义大小，但是在绘制图形时会伸缩以适应它的框架尺寸，如果css尺寸与初始画布比例不一致，它会出现扭曲。</p>
+<h5 id="渲染上下文"><a href="#渲染上下文" class="headerlink" title="渲染上下文"></a>渲染上下文</h5><p>canvas起初是空白的，为了展示，首先脚本需要找到渲染上下文，然后在它上面绘制。</p>
+<p>canvas元素有getContext()方法，这个方法是用来获得渲染上下文和它的绘画功能。getContext()只有一个参数，上下文的格式。</p>
+<h5 id="创建矩形"><a href="#创建矩形" class="headerlink" title="创建矩形"></a>创建矩形</h5><ul>
+<li>ctx.fillRect(x,y,width,height)：绘制一个填充矩形<ul>
+<li>x：矩形起始点的x轴坐标</li>
+<li>y：矩形起始点y轴的坐标</li>
+<li>width：矩形的宽度</li>
+<li>height：矩形的高度</li>
+</ul>
+</li>
+<li>ctx.strokeRect(x,,y,width,height)：绘制一个描边矩形<ul>
+<li>width:矩形的宽度，正值在右侧，负值在左侧。</li>
+<li>height：矩形的高度。正直在下，负值在上。</li>
+</ul>
+</li>
+<li>clearRect(x,y,width,height)：清除指定矩形区域，让清除部分完全透明。</li>
+</ul>
+<h5 id="绘制路径"><a href="#绘制路径" class="headerlink" title="绘制路径"></a>绘制路径</h5><p>图形的基本元素是路径。路径是通过不同颜色和宽度的线段或曲线相连形成的不同形状的点的集合。</p>
+<p>利用路径绘制图形需要一些额外的步骤</p>
+<ul>
+<li>创建路径起始点</li>
+<li>使用画图命令去画路径</li>
+<li>把路径封闭</li>
+<li>一旦路径生成，就可以通过秒表或填充路径区域来渲染图形。</li>
+</ul>
+<h6 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h6><ul>
+<li>beginPath()：新建一条路径，生成之后，图形绘制命令被指到路径上生成路径。</li>
+<li>closePath()：闭合路径之后图形绘制命令又重新指向到上下文中。</li>
+<li>stroke()：通过线条来绘制图形轮廓</li>
+<li>fill()：通过填充路径的内容区域来生成实心的图形。<ul>
+<li>调用该函数时，没有闭合的路径会自动闭合，但是调用stroke函数不会。</li>
+</ul>
+</li>
+<li>moveTo(x,y)：将笔触移动到指定的坐标x和y上。</li>
+<li><code>arc(100,75,50,0*Math.PI,1.5*Math.PI，false)</code><ul>
+<li>圆的中心(100,75)</li>
+<li>起始角：0</li>
+<li>圆的半径：50</li>
+<li>结束角：1.5*Math.PI</li>
+<li>默认为顺时针</li>
+<li>false：顺时针 true：逆时针</li>
+</ul>
+</li>
+<li>lineTo(x,y)：绘制一条从当前位置到指定x以及y位置的直线。</li>
+</ul>
+<h5 id="二次贝塞尔曲线及三次贝塞尔曲线"><a href="#二次贝塞尔曲线及三次贝塞尔曲线" class="headerlink" title="二次贝塞尔曲线及三次贝塞尔曲线"></a>二次贝塞尔曲线及三次贝塞尔曲线</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quadraticCurveTo(cp1x, cp1y, x, y)</span><br></pre></td></tr></table></figure>
+
+<p>绘制二次贝塞尔曲线，<code>cp1x,cp1y</code>为一个控制点，<code>x,y为</code>结束点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)</span><br></pre></td></tr></table></figure>
+
+<p>绘制三次贝塞尔曲线，<code>cp1x,cp1y</code>为控制点一，<code>cp2x,cp2y</code>为控制点二，<code>x,y</code>为结束点。</p>
+<h5 id="Path2D对象"><a href="#Path2D对象" class="headerlink" title="Path2D对象"></a>Path2D对象</h5><p>Path2D会返回一个新初始化的Path2D对象（可能将某一个路径作为变量——创建一个它的副本，或者将一个包含SVG path数据的字符串作为变量）</p>
+<p>eg：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Path2D()<span class="comment">//空的path对象</span></span><br><span class="line"><span class="keyword">new</span> Path2D(path)<span class="comment">//克隆path对象</span></span><br><span class="line"><span class="keyword">new</span> Path2D(d) <span class="comment">//从svg建立path对象</span></span><br></pre></td></tr></table></figure>
+
+<p>Path2D添加了 addPath 作为将Path结合起来的方法。</p>
+<h5 id="添加颜色"><a href="#添加颜色" class="headerlink" title="添加颜色"></a>添加颜色</h5><p>fillStyle = color ：设置图形的填充颜色</p>
+<p>strokeStyle = color ：设置图形轮廓的颜色</p>
+<p>注意：一旦设置了strokeStyle或者fillStyle的值，那么这个新值就会成为新绘制的图形的默认值。如果要给每个图形上不同的颜色，就需要重新设置fillStyle或strokeStyle的值。</p>
+<h5 id="lineStyle"><a href="#lineStyle" class="headerlink" title="lineStyle"></a>lineStyle</h5><h6 id="1、lineWdith：设置线条宽度"><a href="#1、lineWdith：设置线条宽度" class="headerlink" title="1、lineWdith：设置线条宽度"></a>1、lineWdith：设置线条宽度</h6><p>注意：注意奇偶数时在画布上的渲染。</p>
+<h6 id="2、lineCap属性：线段端点显示的样子"><a href="#2、lineCap属性：线段端点显示的样子" class="headerlink" title="2、lineCap属性：线段端点显示的样子"></a>2、lineCap属性：线段端点显示的样子</h6><ul>
+<li>butt：默认值，与辅助线齐平。</li>
+<li>round：端点处加上了半径为一半线段的半圆。</li>
+<li>square：加上了等宽且高度为一般线宽的方块。</li>
+</ul>
+<h6 id="3、lineJoin：图形中两线段连接处所显示的样子。"><a href="#3、lineJoin：图形中两线段连接处所显示的样子。" class="headerlink" title="3、lineJoin：图形中两线段连接处所显示的样子。"></a>3、lineJoin：图形中两线段连接处所显示的样子。</h6><ul>
+<li>round：边角处背磨圆，圆的半径等于线宽</li>
+<li>bevel：</li>
+<li>miter：默认值，线段会在连接处外侧延伸直至交于一点。</li>
+</ul>
+<h4 id="动画的基本步骤"><a href="#动画的基本步骤" class="headerlink" title="动画的基本步骤"></a>动画的基本步骤</h4><h6 id="1、清空canvas"><a href="#1、清空canvas" class="headerlink" title="1、清空canvas"></a>1、清空canvas</h6><p>除非接下来要画的内容会充满canvas（例如背景图），否则需要清空所有，最简单的做法是用clearRect()方法</p>
+<h6 id="2、保存canvas状态"><a href="#2、保存canvas状态" class="headerlink" title="2、保存canvas状态"></a>2、保存canvas状态</h6><p>如果要改变canvas状态的设置（样式，变形之类的），又要在每画一帧之时都是原始状态的话，需要保存。</p>
+<h6 id="3、绘制动画图形"><a href="#3、绘制动画图形" class="headerlink" title="3、绘制动画图形"></a>3、绘制动画图形</h6><h6 id="4、恢复canvas状态"><a href="#4、恢复canvas状态" class="headerlink" title="4、恢复canvas状态"></a>4、恢复canvas状态</h6><p>如果保存了canvas状态，可以先恢复它，然后重绘下一帧。</p>
+<h5 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h5><ul>
+<li><p>rotate()</p>
+<ul>
+<li>参数：以弧度制</li>
+<li>旋转中心在整个画布的左上角，旋转的正方向是顺时针，反方向是逆时针。</li>
+<li>canvas中rotate方法是绕画布左上角（0，0）进行旋转的，而且会受到translate影响。</li>
+</ul>
+</li>
+<li><p>save()</p>
+<ul>
+<li>当前的变换矩阵</li>
+<li>当前的剪切区域</li>
+<li>当前的虚线列表</li>
+<li>一些属性当前的值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">ctx.save();<span class="comment">//保存默认的状态</span></span><br><span class="line">ctx.fillStyle = <span class="string">" "</span>;</span><br><span class="line">......</span><br><span class="line">ctx.restore();<span class="comment">//还原到上次保存的默认状态</span></span><br></pre></td></tr></table></figure>
+
+<p>每调用一次restore方法，上一次保存的状态就从栈中弹出，所有设定都恢复。</p>
+</li>
+<li><p>translate</p>
+<ul>
+<li>移动canvas原点</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/16/day8/" data-id="cjy5x97k500069gvccgnpeinp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/15/day7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">day7</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/16/day8/">day8</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/15/day7/">day7</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/14/day6/">day6</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/12/day5/">day5</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/11/day4/">day4</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
