@@ -5,19 +5,19 @@
   
 
   
-  <title>day6 | Hexo</title>
+  <title>day9 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、JS中new一个对象的过程var obj = new ClassA(); 1、创建空对象； var obj = {}; 2、设置新对象的constructor属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的prototype对象 obj.__proto__ = ClassA.prototype; 3、使用新对象调用函数，函数中this被指向新实例对象 ClassA.cal">
+  <meta name="description" content="vw和vhvw是可视窗口的宽度单位，1vw = 可视窗口的百分之一。与百分比不一样的是，vw始终相对于可视窗口的宽度，而百分比和父元素的宽度有关。 vh则是可视窗口的高度。 vmin：选择vw和vh最小的那个 vmax：选择最大的那个。 touch1、touch：移动端的触摸，是一组事件。  e.touches[0]：第一个触摸点 clientX clientY ：基于浏览器窗口 pageX pa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="day6">
-<meta property="og:url" content="http://yoursite.com/2019/07/14/day6/index.html">
+<meta property="og:title" content="day9">
+<meta property="og:url" content="http://yoursite.com/2019/07/17/day9/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1、JS中new一个对象的过程var obj = new ClassA(); 1、创建空对象； var obj = {}; 2、设置新对象的constructor属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的prototype对象 obj.__proto__ = ClassA.prototype; 3、使用新对象调用函数，函数中this被指向新实例对象 ClassA.cal">
+<meta property="og:description" content="vw和vhvw是可视窗口的宽度单位，1vw = 可视窗口的百分之一。与百分比不一样的是，vw始终相对于可视窗口的宽度，而百分比和父元素的宽度有关。 vh则是可视窗口的高度。 vmin：选择vw和vh最小的那个 vmax：选择最大的那个。 touch1、touch：移动端的触摸，是一组事件。  e.touches[0]：第一个触摸点 clientX clientY ：基于浏览器窗口 pageX pa">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-14T12:51:54.634Z">
+<meta property="og:updated_time" content="2019-07-17T14:02:52.674Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="day6">
-<meta name="twitter:description" content="1、JS中new一个对象的过程var obj = new ClassA(); 1、创建空对象； var obj = {}; 2、设置新对象的constructor属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的prototype对象 obj.__proto__ = ClassA.prototype; 3、使用新对象调用函数，函数中this被指向新实例对象 ClassA.cal">
+<meta name="twitter:title" content="day9">
+<meta name="twitter:description" content="vw和vhvw是可视窗口的宽度单位，1vw = 可视窗口的百分之一。与百分比不一样的是，vw始终相对于可视窗口的宽度，而百分比和父元素的宽度有关。 vh则是可视窗口的高度。 vmin：选择vw和vh最小的那个 vmax：选择最大的那个。 touch1、touch：移动端的触摸，是一组事件。  e.touches[0]：第一个触摸点 clientX clientY ：基于浏览器窗口 pageX pa">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-day6" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-day9" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/07/14/day6/" class="article-date">
-  <time datetime="2019-07-14T01:02:34.000Z" itemprop="datePublished">2019-07-14</time>
+    <a href="/2019/07/17/day9/" class="article-date">
+  <time datetime="2019-07-17T01:07:22.000Z" itemprop="datePublished">2019-07-17</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      day6
+      day9
     </h1>
   
 
@@ -86,32 +86,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="1、JS中new一个对象的过程"><a href="#1、JS中new一个对象的过程" class="headerlink" title="1、JS中new一个对象的过程"></a>1、JS中new一个对象的过程</h5><p>var obj = new ClassA();</p>
-<p>1、创建空对象；</p>
-<p>var obj = {};</p>
-<p>2、设置新对象的constructor属性为构造函数的名称，设置新对象的<code>__proto__</code>属性指向构造函数的prototype对象</p>
-<p><code>obj.__proto__ = ClassA.prototype</code>;</p>
-<p>3、使用新对象调用函数，函数中this被指向新实例对象</p>
-<p>ClassA.call(obj);</p>
-<p>4、将初始化完毕的新对象地址，保存到等号左边的变量中。</p>
-<h5 id="2、关于原型一些总结"><a href="#2、关于原型一些总结" class="headerlink" title="2、关于原型一些总结"></a>2、关于原型一些总结</h5><p>1、原型属性中若有引用值类型，对实例进行修改，原型中该数值也会被修改。</p>
-<p>而基本类型值不会被修改。</p>
-<p>2、每个函数都有一个prototype属性，这个属性指向一个对象，这个对象我们叫做原型对象。</p>
-<p>3、</p>
+        <h4 id="vw和vh"><a href="#vw和vh" class="headerlink" title="vw和vh"></a>vw和vh</h4><p>vw是可视窗口的宽度单位，1vw = 可视窗口的百分之一。与百分比不一样的是，vw始终相对于可视窗口的宽度，而百分比和父元素的宽度有关。</p>
+<p>vh则是可视窗口的高度。</p>
+<p>vmin：选择vw和vh最小的那个</p>
+<p>vmax：选择最大的那个。</p>
+<h4 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h4><p>1、touch：移动端的触摸，是一组事件。</p>
 <ul>
-<li>每个对象都有一个<code>__proto__</code>属性</li>
-<li><code>__proto__</code>指向创建自己的那个构造函数的原型对象。</li>
-<li>对象可以直接访问<code>__proto__</code>里面的属性和方法。</li>
+<li>e.touches[0]：第一个触摸点</li>
+<li>clientX clientY ：基于浏览器窗口</li>
+<li>pageX pageY ：基于页面</li>
+<li>screenX screenY：基于屏幕</li>
 </ul>
-<p>4、constructor指向创建自己的那个构造函数。</p>
-<h5 id="3、闭包"><a href="#3、闭包" class="headerlink" title="3、闭包"></a>3、闭包</h5><p>闭包：有权访问另一个函数作用域中的变量的函数。</p>
-<p>闭包只能取得包含函数中任何变量的最后一个值。</p>
-<p>闭包保存的是整个变量对象，而不是某个特殊的变量。</p>
+<p>2、touchstart：当触摸屏幕的时候触发。</p>
+<p>3、touchend：当手指离开屏幕的时候触发。</p>
+<p>4、touchmove：手指在屏幕中来回滑动触发。</p>
+<p>5、touchcancel：被迫中止手势滑动的时候触发。</p>
+<p>以上对象都有以下的属性：</p>
+<ul>
+<li>touchList：触摸点的集合。<ul>
+<li>触摸点：一个手指就是一个出发点，和屏幕接触点的个数。</li>
+</ul>
+</li>
+<li>changedTouches：改变后的触摸点的集合。</li>
+<li>targetTouches：当前元素的触发点的集合。</li>
+<li>touches：页面上所有触发点的集合。</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/14/day6/" data-id="cjy7bfrg900055gvc6icy2s68" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/17/day9/" data-id="cjy7bfrgb00065gvc9lhc8ojc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -120,19 +124,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/07/15/day7/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          day7
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/12/day5/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/07/16/day8/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">day5</div>
+      <div class="article-nav-title">day8</div>
     </a>
   
 </nav>
