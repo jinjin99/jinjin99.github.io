@@ -62,6 +62,98 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-day10" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/17/day10/" class="article-date">
+  <time datetime="2019-07-17T14:10:00.000Z" itemprop="datePublished">2019-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/17/day10/">day10</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1</p>
+<h4 id="let和const命令"><a href="#let和const命令" class="headerlink" title="let和const命令"></a>let和const命令</h4><ul>
+<li>for循环有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。</li>
+<li>ES6的块级作用域必须有大括号，如果没有大括号，JavaScript引擎就不存在块级作用域。</li>
+</ul>
+<h5 id="let命令"><a href="#let命令" class="headerlink" title="let命令"></a>let命令</h5><ul>
+<li><p>var 命令有变量提升现象，变量可以在声明之前使用，值为undefined。let命令改变了语法行为，他所声明的变量必须在声明后才可以使用，否则报错。</p>
+</li>
+<li><p>暂时性死区：只要在块级作用域内存在let命令，他所声明的变量就绑定这个区域，不受外部的影响。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> temp = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">    tmp=<span class="string">"abc"</span>;<span class="comment">//Error</span></span><br><span class="line">    <span class="keyword">let</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在块级作用域内let声明了一个局部变量，绑定这个块级作用域，所以在let声明变量前，对tmp赋值会报错。</p>
+</li>
+</ul>
+<h5 id="const命令"><a href="#const命令" class="headerlink" title="const命令"></a>const命令</h5><ul>
+<li>const表明一个只读的常量，一旦声明，常量的值就不能改变。这也意味着一旦声明变量，就必须立即初始化，不能留到以后赋值。</li>
+<li>const声明的常量只在声明的块级作用域内有效。</li>
+<li>const命令声明的常量不提升，存在暂时性死区。</li>
+<li>不可重复声明。</li>
+<li>const保证的是变量指向的那个内存地址所保存的数据不可改变。对于简单类型的数据，值就保存在变量指向的那个内存地址，因此等同于常量。但对于复合类型的数据（主要是对象和数组），变量指向的那个内存地址，保存的只是一个指向实际数据的指针，const只能保证这个指针是固定的，这个指针指向的数据是不是可变的，就完全不可控制了。</li>
+</ul>
+<h4 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h4><h5 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h5><ul>
+<li><p>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构。</p>
+</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b,c] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">上面代码表示从数组中提取值，按照对应位置，对变量赋值。</span></span><br><span class="line"><span class="comment">本质上，这种写法属于“模型匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果解构不成功，变量的值就等于undefined</p>
+</li>
+</ul>
+<h6 id="默认值（数组）"><a href="#默认值（数组）" class="headerlink" title="默认值（数组）"></a>默认值（数组）</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span>[foo = <span class="literal">true</span>]=[]</span><br><span class="line">foo<span class="comment">//true;</span></span><br><span class="line"><span class="keyword">let</span>[x,y=<span class="string">'b'</span>] = [<span class="string">'a'</span>]<span class="comment">//x='a',y='b';</span></span><br><span class="line"><span class="keyword">let</span>[x,y=<span class="string">'b'</span>]=[<span class="string">'a'</span>,undefiend];<span class="comment">//x='a',y='b';</span></span><br><span class="line"><span class="comment">//只有一个数组成员严格等于undefined，默认值才会生效</span></span><br><span class="line"><span class="keyword">let</span>[x=<span class="number">1</span>]=[<span class="literal">null</span>]<span class="comment">//x=null null不严格等于undefined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>如果默认值是一个表达式，那么这个表达式是惰性求值，只有在用到的时候，才会求值。</p>
+<p>eg：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> [x=f()] = [<span class="number">1</span>];</span><br><span class="line"><span class="comment">//此时，因为x能取到值，所以f不会被执行。</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h5><ul>
+<li><p>解构不仅可以用于数组，还可以用于对象。</p>
+</li>
+<li><p>对象的结构与数组有一个重要的不同，数组的元素是按次序排序的，变量的取值由它的位置决定，而对象的属性没有次序，变量必须和属性同名，才能去到正确的值。</p>
+</li>
+<li><p>如果变量名和属性名不一样，写成下面那样</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;<span class="attr">foo</span>:baz&#125; = &#123;<span class="attr">foo</span>:<span class="string">"aaa"</span>,<span class="attr">bar</span>:<span class="string">"bbb"</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(baz);<span class="comment">//"aaa"</span></span><br><span class="line"><span class="comment">//对象解构赋值的内部机制，是先找到同名属性，然后再赋给对应的变量。真正被赋值的是后者，而不是前者。</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h6 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h6><ul>
+<li>默认值生效的条件是，对象的属性值严格等于undefined。</li>
+</ul>
+<h6 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h6><ul>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x;</span><br><span class="line">&#123;x&#125; = &#123;<span class="attr">x</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="comment">//上面代码的写法会报错，因为JavaScript引擎会把&#123;x&#125;理解成一个代码块，从而发生语法错误。只有不将大括号写在行首，避免JavaScript将其解释为代码块，才能解决这个问题。</span></span><br><span class="line"><span class="keyword">let</span> x;</span><br><span class="line">(&#123;x&#125; = &#123;<span class="attr">x</span>:<span class="number">1</span>&#125;);<span class="comment">//这样才正确。</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/17/day10/" data-id="cjy8obgj90000gwvc2xotpwig" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-day9" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/17/day9/" class="article-date">
@@ -113,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/17/day9/" data-id="cjy7bfrgb00065gvc9lhc8ojc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/17/day9/" data-id="cjy8obgjy0009gwvcseymr43v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -250,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/16/day8/" data-id="cjy7bfrg700045gvcatyi3ebf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/16/day8/" data-id="cjy8obgju0006gwvc0eqk9dha" class="article-share-link">Share</a>
       
       
     </footer>
@@ -340,7 +432,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/day7/" data-id="cjy7bfrgc00075gvc1jzjqei6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/15/day7/" data-id="cjy8obgjv0007gwvconf0l8kn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -397,7 +489,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/14/day6/" data-id="cjy7bfrg900055gvc6icy2s68" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/14/day6/" data-id="cjy8obgjq0002gwvcqbtvy98h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -481,7 +573,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/12/day5/" data-id="cjy7bfrg300025gvc6w9d4h0p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/12/day5/" data-id="cjy8obgjt0005gwvcyj3bghpk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -613,7 +705,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/11/day4/" data-id="cjy7bfrfr00005gvc584odg4y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/11/day4/" data-id="cjy8obgjr0003gwvcek0yyu8q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -795,7 +887,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/10/day3/" data-id="cjy7bfrgs00095gvcvnvlxuod" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/10/day3/" data-id="cjy8obgk8000agwvc7idog75a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -976,7 +1068,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/09/day2/" data-id="cjy7bfrg500035gvcf58idorq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/09/day2/" data-id="cjy8obgjs0004gwvcne7622o9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1060,56 +1152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/day1/" data-id="cjy7bfrg000015gvcd3dfek0a" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/08/hello-world/" class="article-date">
-  <time datetime="2019-07-08T01:31:33.444Z" itemprop="datePublished">2019-07-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjy7bfrge00085gvcwkk09qbh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/day1/" data-id="cjy8obgjp0001gwvcpzyz5dc0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1120,6 +1163,11 @@
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -1150,6 +1198,10 @@
       <ul>
         
           <li>
+            <a href="/2019/07/17/day10/">day10</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/17/day9/">day9</a>
           </li>
         
@@ -1163,10 +1215,6 @@
         
           <li>
             <a href="/2019/07/14/day6/">day6</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/12/day5/">day5</a>
           </li>
         
       </ul>
