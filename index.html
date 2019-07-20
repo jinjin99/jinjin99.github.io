@@ -62,6 +62,106 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-day11" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/18/day11/" class="article-date">
+  <time datetime="2019-07-18T12:53:29.000Z" itemprop="datePublished">2019-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/18/day11/">day11</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><ul>
+<li><p>使用默认值传值</p>
+<ul>
+<li>参数默认值不是传值的，而是每次都重新计算默认值表达式的值，也就是说，参数默认值是惰性求值。</li>
+</ul>
+</li>
+<li><p>可以与解构赋值默认值结合使用</p>
+<ul>
+<li><p>如果没有提供参数，函数参数默认为一个空对象（按下列的写法）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">&#123;x,y=<span class="number">5</span>&#125;=&#123;&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x,y);</span><br><span class="line">&#125;</span><br><span class="line">foo()<span class="comment">//undefined 5</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetch</span>(<span class="params">url, &#123; body = <span class="string">''</span>, method = <span class="string">'GET'</span>, headers = &#123;&#125; &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(method);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">'http://example.com'</span>, &#123;&#125;)</span><br><span class="line"><span class="comment">// "GET"</span></span><br><span class="line">fetch(<span class="string">'http://example.com'</span>)</span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetch</span>(<span class="params">url, &#123; body = <span class="string">''</span>, method = <span class="string">'GET'</span>, headers = &#123;&#125; &#125; = &#123;&#125;</span>) </span>&#123; <span class="comment">//代码指定，如果没有提供第二个参数，就默认第二个参数为空对象。如果是一个对象，就可以为他的三个属性设置默认值。</span></span><br><span class="line">  <span class="built_in">console</span>.log(method);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">'http://example.com'</span>)</span><br><span class="line"><span class="comment">// "GET"</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<ul>
+<li><p>函数的length属性</p>
+<ul>
+<li>指定了默认值后，函数的length属性将返回没有指定默认值的参数个数，也就是说，指定了默认值后，length属性将失真。</li>
+<li>length含义是，该函数预期传入的参数个数，某个参数指定默认值后，预期传入的参数个数就不包括这个参数了。</li>
+<li>如果设置了默认值的参数不是尾参数，那么length属性也不再计入后面的参数了。</li>
+</ul>
+</li>
+<li><p>作用域</p>
+<ul>
+<li>一旦设置了参数的默认值，函数进行声明初始化时，参数会形成一个单独的作用域，等到初始化结束，这个作用域会消失，这种语法行为，在不设置参数默认值时是不会出现的。</li>
+</ul>
+</li>
+</ul>
+<h5 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h5><ul>
+<li>形式为 …变量名 ，用于获取函数的多余参数。rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中。</li>
+<li>rest参数之后不能再有其他参数，否则会报错。</li>
+<li>注意：函数的length属性，不包括rest</li>
+</ul>
+<h5 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h5><ul>
+<li><p>允许使用“箭头” =&gt; 定义函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="params">v</span> =&gt;</span> v;</span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果不需要参数或者需要多个参数，就用一个圆括号代替参数部分。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="params">()</span> =&gt;</span><span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="number">5</span>;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sum = <span class="function">(<span class="params">num1,num2</span>) =&gt;</span> num1+num2;</span><br><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1,num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1+num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>由于大括号会被解释成代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号，否则会出错。</p>
+</li>
+<li><p>函数体内的<code>this</code>对象，总是指向函数定义生效时所在的对象，而不是使用时所在的对象。</p>
+</li>
+<li><p>箭头函数没有自己的this，所以不能用call()、apply()、bind()这些方法去改变this的指向。</p>
+</li>
+</ul>
+<h4 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h4><ul>
+<li>对象的属性名可以有两种类型，一种是原来就有的字符串，另一种就是新增的symbol类型，凡是属性名属于symbol类型，就都是独一无二的，可以保证与其他属性名产生冲突。</li>
+<li>Symbol 值不是对象，所以不能添加属性。不可以使用new命令。</li>
+<li><a href="https://github.com/tc39/proposal-Symbol-description" target="_blank" rel="noopener">ES2019</a> 提供了一个实例属性<code>description</code>，直接返回 Symbol 的描述。</li>
+<li>Symbol 值作为对象属性名时，不能用点运算符。</li>
+<li>symbol作为属性名，该属性不会出现在for..in、for..of循环中，也不会被object.keys()等返回，但是，它不是私有属性，有一个object.getOwnPropertySymbols方法，可以获取指定对象的所有symbol属性名。该方法返回一个数组，成员是当前对象的所有用作属性名的symbol值。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/18/day11/" data-id="cjybgvogt0000uwvcjctiup71" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-day10" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/17/day10/" class="article-date">
@@ -144,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/17/day10/" data-id="cjy8obgj90000gwvc2xotpwig" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/17/day10/" data-id="cjybgvoh30002uwvc5kz1z3g4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -205,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/17/day9/" data-id="cjy8obgjy0009gwvcseymr43v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/17/day9/" data-id="cjybgvohv0007uwvc6pmalyq4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -342,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/16/day8/" data-id="cjy8obgju0006gwvc0eqk9dha" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/16/day8/" data-id="cjybgvohz0009uwvcrrzeprrq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -432,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/day7/" data-id="cjy8obgjv0007gwvconf0l8kn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/15/day7/" data-id="cjybgvohw0008uwvcdb0eo5q4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -489,7 +589,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/14/day6/" data-id="cjy8obgjq0002gwvcqbtvy98h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/14/day6/" data-id="cjybgvohn0004uwvc8ey62a47" class="article-share-link">Share</a>
       
       
     </footer>
@@ -573,7 +673,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/12/day5/" data-id="cjy8obgjt0005gwvcyj3bghpk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/12/day5/" data-id="cjybgvohs0006uwvc9y7n9av7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -705,7 +805,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/11/day4/" data-id="cjy8obgjr0003gwvcek0yyu8q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/11/day4/" data-id="cjybgvohq0005uwvcouo7wdn1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -887,7 +987,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/10/day3/" data-id="cjy8obgk8000agwvc7idog75a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/10/day3/" data-id="cjybgvoik000buwvcjbfksscn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1068,91 +1168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/09/day2/" data-id="cjy8obgjs0004gwvcne7622o9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-day1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/08/day1/" class="article-date">
-  <time datetime="2019-07-08T09:44:14.000Z" itemprop="datePublished">2019-07-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/08/day1/">day1</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>### </p>
-<h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><ul>
-<li><p>hexo new “title”：新建标题为 title的文章。</p>
-</li>
-<li><p>hexo g ： 生成网站静态文件到默认设置的public文件夹</p>
-<ul>
-<li>便于查看网站生成的静态文件或者手动部署网站。</li>
-<li>hexo g 是hexo generate的缩写。</li>
-</ul>
-</li>
-<li><p>hexo s ：启用本地服务器，用于预览主题。默认地址为 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
-<ul>
-<li>hexo s 是hexo server 的缩写，命令效果一致。</li>
-<li>预览的同时可以修改文章内容或主题代码，保存后刷新页面即可。</li>
-</ul>
-</li>
-<li><p>hexo d ：自动生成网站静态文件，并部署到设定的仓库</p>
-<ul>
-<li>hexo d 是hexo deploy的缩写。</li>
-</ul>
-</li>
-</ul>
-<h3 id="git流程"><a href="#git流程" class="headerlink" title="git流程"></a>git流程</h3><p>1、克隆仓库</p>
-<p>git clone XXX</p>
-<p>git init</p>
-<p>2、先获取远程master分支的最新代码</p>
-<p>git checkout master</p>
-<p>git pull origin master</p>
-<p>3、创建分支</p>
-<p>git branch test</p>
-<p>4、切换分支</p>
-<p>git checkout test</p>
-<p>（3、4可合成 git checkout -b test）</p>
-<p>5、在完成步骤2，3后，就可以继续自己的工作（敲代码）</p>
-<p>6、完成工作后，就可以提交到自己的工作分支test</p>
-<p>git add .   （这个指令是指我们在工作区对文件做的修改放入暂存区，之后可以继续对该文件进行修改，但暂存区里面保存了该文件上一次放进去的样子）</p>
-<p>git commit -m “ 这里是解释 “  （将暂存区的文件提交到本地版本库）</p>
-<p><strong>1-6步骤，对git的操作都只是在本地进行，需要对代码的修改推到远程仓库，其他人才能看到修改后的代码</strong></p>
-<p>7、git push origin test</p>
-<p>8、此时该分支的代码还不在master分支中，避免merge失败，先将master分支上最新的代码 marge到当前分支。</p>
-<p>git pull –rebase origin master</p>
-<p>（如果有错误题是，则打开冲突文件，修改冲突</p>
-<p>git status：查看有冲突的文件</p>
-<p>调整好冲突文件后，git add .</p>
-<p>）</p>
-<p>9、git add .</p>
-<p>git rebase –continue</p>
-<p>git push origin test</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/day1/" data-id="cjy8obgjp0001gwvcpzyz5dc0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/09/day2/" data-id="cjybgvoh50003uwvcjfa2shcg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1198,6 +1214,10 @@
       <ul>
         
           <li>
+            <a href="/2019/07/18/day11/">day11</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/17/day10/">day10</a>
           </li>
         
@@ -1211,10 +1231,6 @@
         
           <li>
             <a href="/2019/07/15/day7/">day7</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/14/day6/">day6</a>
           </li>
         
       </ul>

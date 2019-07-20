@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>day11 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="函数 使用默认值传值  参数默认值不是传值的，而是每次都重新计算默认值表达式的值，也就是说，参数默认值是惰性求值。   可以与解构赋值默认值结合使用  如果没有提供参数，函数参数默认为一个空对象（按下列的写法） 1234function foo(&amp;#123;x,y=5&amp;#125;=&amp;#123;&amp;#125;)&amp;#123;    console.log(x,y);&amp;#125;foo()//undefi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="day11">
+<meta property="og:url" content="http://yoursite.com/2019/07/18/day11/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="函数 使用默认值传值  参数默认值不是传值的，而是每次都重新计算默认值表达式的值，也就是说，参数默认值是惰性求值。   可以与解构赋值默认值结合使用  如果没有提供参数，函数参数默认为一个空对象（按下列的写法） 1234function foo(&amp;#123;x,y=5&amp;#125;=&amp;#123;&amp;#125;)&amp;#123;    console.log(x,y);&amp;#125;foo()//undefi">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-20T11:46:11.627Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="day11">
+<meta name="twitter:description" content="函数 使用默认值传值  参数默认值不是传值的，而是每次都重新计算默认值表达式的值，也就是说，参数默认值是惰性求值。   可以与解构赋值默认值结合使用  如果没有提供参数，函数参数默认为一个空对象（按下列的写法） 1234function foo(&amp;#123;x,y=5&amp;#125;=&amp;#123;&amp;#125;)&amp;#123;    console.log(x,y);&amp;#125;foo()//undefi">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-day11" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/18/day11/" class="article-date">
+  <time datetime="2019-07-18T12:53:29.000Z" itemprop="datePublished">2019-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      day11
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><ul>
+<li><p>使用默认值传值</p>
+<ul>
+<li>参数默认值不是传值的，而是每次都重新计算默认值表达式的值，也就是说，参数默认值是惰性求值。</li>
+</ul>
+</li>
+<li><p>可以与解构赋值默认值结合使用</p>
+<ul>
+<li><p>如果没有提供参数，函数参数默认为一个空对象（按下列的写法）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">&#123;x,y=<span class="number">5</span>&#125;=&#123;&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x,y);</span><br><span class="line">&#125;</span><br><span class="line">foo()<span class="comment">//undefined 5</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetch</span>(<span class="params">url, &#123; body = <span class="string">''</span>, method = <span class="string">'GET'</span>, headers = &#123;&#125; &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(method);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">'http://example.com'</span>, &#123;&#125;)</span><br><span class="line"><span class="comment">// "GET"</span></span><br><span class="line">fetch(<span class="string">'http://example.com'</span>)</span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetch</span>(<span class="params">url, &#123; body = <span class="string">''</span>, method = <span class="string">'GET'</span>, headers = &#123;&#125; &#125; = &#123;&#125;</span>) </span>&#123; <span class="comment">//代码指定，如果没有提供第二个参数，就默认第二个参数为空对象。如果是一个对象，就可以为他的三个属性设置默认值。</span></span><br><span class="line">  <span class="built_in">console</span>.log(method);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">'http://example.com'</span>)</span><br><span class="line"><span class="comment">// "GET"</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<ul>
+<li><p>函数的length属性</p>
+<ul>
+<li>指定了默认值后，函数的length属性将返回没有指定默认值的参数个数，也就是说，指定了默认值后，length属性将失真。</li>
+<li>length含义是，该函数预期传入的参数个数，某个参数指定默认值后，预期传入的参数个数就不包括这个参数了。</li>
+<li>如果设置了默认值的参数不是尾参数，那么length属性也不再计入后面的参数了。</li>
+</ul>
+</li>
+<li><p>作用域</p>
+<ul>
+<li>一旦设置了参数的默认值，函数进行声明初始化时，参数会形成一个单独的作用域，等到初始化结束，这个作用域会消失，这种语法行为，在不设置参数默认值时是不会出现的。</li>
+</ul>
+</li>
+</ul>
+<h5 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h5><ul>
+<li>形式为 …变量名 ，用于获取函数的多余参数。rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中。</li>
+<li>rest参数之后不能再有其他参数，否则会报错。</li>
+<li>注意：函数的length属性，不包括rest</li>
+</ul>
+<h5 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h5><ul>
+<li><p>允许使用“箭头” =&gt; 定义函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="params">v</span> =&gt;</span> v;</span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果不需要参数或者需要多个参数，就用一个圆括号代替参数部分。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="params">()</span> =&gt;</span><span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="number">5</span>;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sum = <span class="function">(<span class="params">num1,num2</span>) =&gt;</span> num1+num2;</span><br><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1,num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1+num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>由于大括号会被解释成代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号，否则会出错。</p>
+</li>
+<li><p>函数体内的<code>this</code>对象，总是指向函数定义生效时所在的对象，而不是使用时所在的对象。</p>
+</li>
+<li><p>箭头函数没有自己的this，所以不能用call()、apply()、bind()这些方法去改变this的指向。</p>
+</li>
+</ul>
+<h4 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h4><ul>
+<li>对象的属性名可以有两种类型，一种是原来就有的字符串，另一种就是新增的symbol类型，凡是属性名属于symbol类型，就都是独一无二的，可以保证与其他属性名产生冲突。</li>
+<li>Symbol 值不是对象，所以不能添加属性。不可以使用new命令。</li>
+<li><a href="https://github.com/tc39/proposal-Symbol-description" target="_blank" rel="noopener">ES2019</a> 提供了一个实例属性<code>description</code>，直接返回 Symbol 的描述。</li>
+<li>Symbol 值作为对象属性名时，不能用点运算符。</li>
+<li>symbol作为属性名，该属性不会出现在for..in、for..of循环中，也不会被object.keys()等返回，但是，它不是私有属性，有一个object.getOwnPropertySymbols方法，可以获取指定对象的所有symbol属性名。该方法返回一个数组，成员是当前对象的所有用作属性名的symbol值。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/18/day11/" data-id="cjybgvogt0000uwvcjctiup71" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/17/day10/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">day10</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/18/day11/">day11</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/17/day10/">day10</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/17/day9/">day9</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/16/day8/">day8</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/15/day7/">day7</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
