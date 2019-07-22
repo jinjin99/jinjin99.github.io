@@ -62,6 +62,187 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-day2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/09/day2/" class="article-date">
+  <time datetime="2019-07-09T01:26:29.000Z" itemprop="datePublished">2019-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/09/day2/">day2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="在html中使用JavaScript"><a href="#在html中使用JavaScript" class="headerlink" title="在html中使用JavaScript"></a>在html中使用JavaScript</h4><h5 id="1、-lt-script-gt-元素嵌入代码"><a href="#1、-lt-script-gt-元素嵌入代码" class="headerlink" title="1、&lt;script&gt;元素嵌入代码"></a>1、<code>&lt;script&gt;</code>元素嵌入代码</h5><ul>
+<li><p>包含在<code>&lt;script&gt;</code>元素内部的JavaScript代码将从上至下以此解释。在解释器对<code>&lt;script&gt;</code>元素内部所有代码求值完毕之前，页面中的其余内容都不会被浏览器加载或显示。</p>
+</li>
+<li><p>在使用<code>&lt;script&gt;</code>嵌入JavaScript代码时，不要在代码任何地方出现 “&lt;’/script&gt;”字符串</p>
+<p>eg：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"> 	alert(<span class="string">"&lt;/script&gt;"</span>);</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样就会出现错误，因为按照解析嵌入式代码的规则，当浏览器遇到字符串<code>&lt;/script&gt;</code>时，会认为那是结束标签。需要通过转义字符“\”解决这个问题。</p>
+</li>
+</ul>
+<h5 id="2、-lt-script-gt-标签引入外部脚本文件"><a href="#2、-lt-script-gt-标签引入外部脚本文件" class="headerlink" title="2、&lt;script&gt;标签引入外部脚本文件"></a>2、<code>&lt;script&gt;</code>标签引入外部脚本文件</h5><ul>
+<li>带src属性的<code>&lt;script&gt;</code>元素不应该在其<code>&lt;script&gt;&lt;/script&gt;</code>标签里再包含JavaScript代码。因为如果包含了嵌入的代码，则只会下载并执行外部脚本文件，嵌入的代码则会被忽略。</li>
+<li>src属性可以包含来自外部域的JavaScript文件。</li>
+<li>无论如何包含代码，只要不存在defer和async属性，浏览器都会按照<code>&lt;script&gt;</code>元素在页面中出现的先后顺序对他们一次进行解析。（第一个script标签解析后，第二个第三个…一次进行）</li>
+</ul>
+<h5 id="3、标签的位置"><a href="#3、标签的位置" class="headerlink" title="3、标签的位置"></a>3、标签的位置</h5><ul>
+<li>把<code>&lt;script&gt;</code>标签放在<code>&lt;head&gt;</code>元素中，这种做法的目的是把所有外部文件的引用都放在同一个地方。但是在<code>&lt;head&gt;</code>元素中包含JavaScript文件，意味着必须等到所有的JavaScript代码都被下载、解析和执行完成后，才能呈现页面的内容。对于需要很多JavaScript代码的页面来说，会导致浏览器呈现页面时出现明显的延迟，而延迟期间浏览器的窗口将一片空白。</li>
+<li>为了避免以上所说的问题，一般将JavaScript引用在<code>&lt;body&gt;</code>元素中页面内容的后面。</li>
+</ul>
+<h5 id="4、延迟脚本"><a href="#4、延迟脚本" class="headerlink" title="4、延迟脚本"></a>4、延迟脚本</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">defer</span>=<span class="string">"defer"</span> <span class="attr">src</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">defer</span>=<span class="string">"defer"</span> <span class="attr">src</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>defer属性表明脚本在执行时不会影响页面的构造，换句话说，脚本会被延迟到整个页面都解析完毕之后再运行。</p>
+<ul>
+<li><p>在这个例子中，虽然把<code>&lt;script&gt;</code>元素放在<code>&lt;head&gt;</code>元素中，但其包含的脚本将延迟到遇到<code>&lt;/html&gt;</code>标签后再执行。 </p>
+</li>
+<li><p>html5规范要求脚本按照他们出现的先后顺序执行，所以第一个延迟脚本会先于第二个延迟脚本执行，而这两个脚本会先于DOMContentLoaded事件执行。但在现实中，延迟脚本不一定会按照顺序执行，也不一定会在DOMContentLoaded事件触发之前执行。因此，最好只包含一个延迟脚本。</p>
+</li>
+<li><p>当初始的html文档被完全加载和解析完成之后，DOMContentLoaded事件被触发。</p>
+</li>
+</ul>
+<h5 id="5、异步脚本"><a href="#5、异步脚本" class="headerlink" title="5、异步脚本"></a>5、异步脚本</h5><ul>
+<li>与defer类似，async只使用于外部脚本文件，并告诉浏览器立即下载文件。</li>
+<li>与defer不同的是，标记为async的脚本并不保证按照指定他们的先后顺序执行。</li>
+<li>指定async属性的目的是不让页面等待两个脚本下载和执行，从而异步加载页面其他内容。<strong>因此，建议异步脚本不要在加载期间修改DOM。</strong></li>
+</ul>
+<h5 id="6、noscript元素"><a href="#6、noscript元素" class="headerlink" title="6、noscript元素"></a>6、noscript元素</h5><p>包含在<code>&lt;noscript&gt;</code>元素中的内容只有在下列情况下才会显示出来：</p>
+<ul>
+<li>浏览器不支持脚本。</li>
+<li>浏览器支持脚本，但是脚本被禁用。</li>
+</ul>
+<h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><h5 id="1、用var操作符定义的变量将成为定义该变量的作用域中的局部变量。也就是说，如果在函数中使用var定义一个变量，那么这么变量在函数退出后就会被销毁。"><a href="#1、用var操作符定义的变量将成为定义该变量的作用域中的局部变量。也就是说，如果在函数中使用var定义一个变量，那么这么变量在函数退出后就会被销毁。" class="headerlink" title="1、用var操作符定义的变量将成为定义该变量的作用域中的局部变量。也就是说，如果在函数中使用var定义一个变量，那么这么变量在函数退出后就会被销毁。"></a>1、用var操作符定义的变量将成为定义该变量的作用域中的局部变量。也就是说，如果在函数中使用var定义一个变量，那么这么变量在函数退出后就会被销毁。</h5><h5 id="2、typeof操作符"><a href="#2、typeof操作符" class="headerlink" title="2、typeof操作符"></a>2、typeof操作符</h5><p>可能会返回下列某个字符串</p>
+<ul>
+<li><p>“undefined”——未定义</p>
+<ul>
+<li>使用var声明变量但是并未对齐初始化，这个变量就是undefined。</li>
+</ul>
+</li>
+<li><p>“Boolean”——布尔值</p>
+<ul>
+<li><p>true和false与数字值不是一回事，true不一定等于1，false不一定等于0。</p>
+</li>
+<li><p>Boolean类型的字面值true和false是区分大小写的，True和False都不是Boolean值，只是标识符。</p>
+</li>
+<li><p>虽然Boolean类型的字面值只有两个，但是ECMAScript所有类型的值都有与这两个Boolean值等价的值。要将一个值转换成对应的Boolean值，可以调用转型函数Boolean();</p>
+<ul>
+<li>undefined类型的n/a(not application/不适用)转成true。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>“string”——字符串</p>
+<ul>
+<li><p>字符串是不可变的，也就是说，字符串一旦创建，他们的值就不可以改变。</p>
+</li>
+<li><p>toString()：返回字符串，可传递一个参数，如 </p>
+<p>eg：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">num.toString();<span class="comment">//"10"</span></span><br><span class="line">num.toString(<span class="number">2</span>);<span class="comment">//"1010"</span></span><br><span class="line">num.toString(<span class="number">8</span>);<span class="comment">//"12"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>String()：null和undefined没有toString方法，所以String()返回了这两个值的字面量。</p>
+</li>
+</ul>
+</li>
+<li><p>“number”——数值</p>
+<ul>
+<li><p>八进制：第一位必须是0，然后是八进制数字序列（0-7），如果字面值超过了７，那么前导零将会被忽略，后面的值将被当成十进制解析</p>
+<p>eg：079 //无效八进制——解析为79.</p>
+</li>
+<li><p>十六进制：前两位必须是0x</p>
+</li>
+<li><p>isFinite()函数：如果number是NaN，或者是正、负无穷大的数，则返回false。</p>
+</li>
+<li><p>NaN（not a number）是一个特殊的数值，注意NaN！=NaN。</p>
+<ul>
+<li>alert(isNaN(“10”)) ;//true 字符串“10”可以转成数值。</li>
+<li>alert(isNaN(“blue”)); //false 字符串“blue”不可以转成数值。</li>
+</ul>
+</li>
+<li><p>数值转换</p>
+<ul>
+<li><p>Number() </p>
+<ul>
+<li>null——返回0</li>
+<li>undefined——返回NaN</li>
+<li>浮点数——浮点数</li>
+<li>字符串<ul>
+<li>若字符串为为”011”,则会变成11（前导零被忽略了）</li>
+<li>若有有效的十六进制，则转换成对应大小的十进制数值</li>
+<li>若字符串是空的，则转成0</li>
+<li><strong>若包括除数字外还有其他字符，则转成NaN</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>parseInt()</p>
+<ul>
+<li><p>小数——整数（因为小数点不是有效数字字符）</p>
+</li>
+<li><p>null——NaN</p>
+</li>
+<li><p>在ECMAScript 5 Javascript引擎中，parseInt()不具有解析八进制能力，前导零被认为无效。为消除困惑，可为该函数提供第二个参数。parseInt(“70”,8),则指定数值按照八进制解析。</p>
+<p>注意：如果第一个字符不是数字数值或者符号，会忽略前面的空格，知道找到第一个非空格字符。如果第一个字符不是数字或者符号，则会返回NaN，知道解析所有字符或者遇到非数字字符。</p>
+<p><img src="/.com//3.jpg" alt></p>
+<p><img src="/.com//4.jpg" alt></p>
+<p><img src="/.com//1.jpg" alt></p>
+<p><img src="/.com//2.jpg" alt></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>“object”——对象或null（特殊值null被认为是一个空对象指针）</p>
+<p>对象：一组数据和功能的集合。</p>
+</li>
+<li><p>“function”——函数</p>
+</li>
+</ul>
+<p>eg：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"aaa"</span>;</span><br><span class="line">alert(<span class="keyword">typeof</span> message);<span class="comment">//"string"</span></span><br><span class="line">alert(<span class="keyword">typeof</span>(message));<span class="comment">//“string”</span></span><br><span class="line">alert(<span class="keyword">typeof</span> <span class="number">100</span>);<span class="comment">//"number"</span></span><br></pre></td></tr></table></figure>
+
+<p>typeof操作符可以是变量，也可以是数值字面量。typeof是一个操作符而不是函数，因此例子中圆括号可以使用，但不是必须的。</p>
+<h5 id="3、操作符"><a href="#3、操作符" class="headerlink" title="3、操作符"></a>3、操作符</h5><h5 id="乘法操作符"><a href="#乘法操作符" class="headerlink" title="乘法操作符"></a>乘法操作符</h5><ul>
+<li>如果有一个操作数是NaN，则结果是NaN。</li>
+<li>如果是infinity与0相乘，结果 NaN。</li>
+<li>infinity与非零相乘，结果是infinity或-infinity。</li>
+<li>如果有一个操作数不是数值，则在后台调用number()将其转换成数值，再应用上面的规则。</li>
+</ul>
+<h5 id="除法操作符"><a href="#除法操作符" class="headerlink" title="除法操作符"></a>除法操作符</h5><ul>
+<li>如果零被整除，其结果是NaN</li>
+</ul>
+<h5 id="关系操作符"><a href="#关系操作符" class="headerlink" title="关系操作符"></a>关系操作符</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = <span class="string">"23"</span>&lt;<span class="string">"3"</span><span class="comment">//true</span></span><br><span class="line">因为两个操作数都是字符串，而字符串比较的是字符编码。（“<span class="number">2</span>”的字符编码是<span class="number">50</span>，“<span class="number">3</span>”的字符编码是<span class="number">51</span>）</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = <span class="string">"23"</span>&lt;<span class="number">3</span>;<span class="comment">//false</span></span><br><span class="line">这是，字符串“<span class="number">23</span>”会被转换成数值<span class="number">23</span>，然后再与<span class="number">3</span>进行比较。</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = <span class="string">"a"</span>&lt;<span class="number">3</span> <span class="comment">//false</span></span><br><span class="line">由于字符<span class="string">"a"</span>不能转换成合理的数值，因此被转换成<span class="literal">NaN</span>.根据规则，任何操作数与<span class="literal">NaN</span>进行关系比较都是<span class="literal">false</span>。</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/09/day2/" data-id="cjyegcsdk0001h0vcdyq6kxl2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-day1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/08/day1/" class="article-date">
@@ -136,7 +317,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/day1/" data-id="cjybgvoh10001uwvcvawwzd5k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/day1/" data-id="cjyegcsdt0004h0vc2g902uuh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -185,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjybgvoi1000auwvcdwuvz7ys" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjyegcseh0009h0vc91helu7j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -231,6 +412,10 @@
       <ul>
         
           <li>
+            <a href="/2019/07/20/day12/">day12</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/18/day11/">day11</a>
           </li>
         
@@ -244,10 +429,6 @@
         
           <li>
             <a href="/2019/07/16/day8/">day8</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/15/day7/">day7</a>
           </li>
         
       </ul>
