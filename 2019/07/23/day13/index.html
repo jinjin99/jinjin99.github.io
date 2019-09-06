@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>day13 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jQuery 获得当前索引号 $(this).index()   添加类 addClass() 追加类名，不影响原来的类名。 删除类removeClass() 切换类toggleClass() 如果有该类名，就删去，如果没有，就加上。   动画效果  显示隐藏（一般情况下不加参数）  show([speed],[easing],[fn]) hide([speed],[easing],[fn]) t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="day13">
+<meta property="og:url" content="http://yoursite.com/2019/07/23/day13/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="jQuery 获得当前索引号 $(this).index()   添加类 addClass() 追加类名，不影响原来的类名。 删除类removeClass() 切换类toggleClass() 如果有该类名，就删去，如果没有，就加上。   动画效果  显示隐藏（一般情况下不加参数）  show([speed],[easing],[fn]) hide([speed],[easing],[fn]) t">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-23T13:32:21.468Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="day13">
+<meta name="twitter:description" content="jQuery 获得当前索引号 $(this).index()   添加类 addClass() 追加类名，不影响原来的类名。 删除类removeClass() 切换类toggleClass() 如果有该类名，就删去，如果没有，就加上。   动画效果  显示隐藏（一般情况下不加参数）  show([speed],[easing],[fn]) hide([speed],[easing],[fn]) t">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-day13" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/23/day13/" class="article-date">
+  <time datetime="2019-07-23T01:08:59.000Z" itemprop="datePublished">2019-07-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      day13
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h4><ul>
+<li><p>获得当前索引号 <code>$(this).index()</code></p>
+</li>
+<li><ul>
+<li>添加类 <code>addClass()</code> 追加类名，不影响原来的类名。</li>
+<li>删除类<code>removeClass()</code></li>
+<li>切换类<code>toggleClass()</code> 如果有该类名，就删去，如果没有，就加上。</li>
+</ul>
+</li>
+<li><p>动画效果</p>
+<ul>
+<li><p>显示隐藏（一般情况下不加参数）</p>
+<ul>
+<li>show([speed],[easing],[fn])</li>
+<li>hide([speed],[easing],[fn])</li>
+<li>toggle([speed],[easing],[fn])</li>
+</ul>
+</li>
+<li><p>滑动效果(显示隐藏)</p>
+<ul>
+<li>slideDown()：下滑动</li>
+<li>slideUp()：上滑动</li>
+<li>slideToggle()：滑动切换 </li>
+</ul>
+</li>
+<li><p>事件切换</p>
+<ul>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hover(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//鼠标经过的函数</span></span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//鼠标离开的离开的函数</span></span><br><span class="line">    <span class="comment">//如果只写一个函数，鼠标离开或经过都会触发那个函数</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>动画或者效果一旦触发就会执行，如果多次触发，就会造成多个动画或者效果排队执行。</p>
+<ul>
+<li>stop()；//必须写在动画的前面，停止动画排序。</li>
+</ul>
+</li>
+<li><p>淡入淡出效果</p>
+<ul>
+<li>fadeIn()    //淡入效果</li>
+<li>fadeOut()   //淡出效果</li>
+<li>fadeToggle()  //切换</li>
+<li>fadeTo()  //修改透明度 透明度参数一定要写</li>
+</ul>
+</li>
+<li><p>自定义动画 animate</p>
+<ul>
+<li>animate(params,[speed],[easing],[fn])</li>
+<li>params：想要更改的样式属性，以对象形式传递，必须写。属性名可以不用带引号，如果是复合属性则需要采取驼峰命名法，其余参数都可以省略。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>属性操作</p>
+<ul>
+<li><p>获取元素固有属性</p>
+<ul>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prop(<span class="string">"属性名"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>设置属性</p>
+<ul>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prop(<span class="string">"属性名"</span>,<span class="string">"属性值"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>获取元素自定义属性</p>
+<ul>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">attr(<span class="string">"属性名"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">attr(<span class="string">"属性名"</span>,<span class="string">"属性值"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>数据缓存date() </p>
+<ul>
+<li>date()方法可以在指定的元素上存取数据，并不会修改DOM元素结构，一旦页面刷新，之前存放的数据都被移除。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>添加html内容</p>
+<ul>
+<li>append() - 在被选元素的结尾插入内容</li>
+<li>prepend() - 在被选元素的开头插入内容</li>
+<li>after() - 在被选元素之后插入内容</li>
+<li>before() - 在被选元素之前插入内容</li>
+</ul>
+</li>
+<li><p>删除元素/内容</p>
+<ul>
+<li>remove() - 删除被选元素（及其子元素），可接受一个参数，允许您对被删元素进行过滤。</li>
+<li>empty() - 从被选元素中删除子元素</li>
+</ul>
+</li>
+<li><p>width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。</p>
+<p>height() 方法设置或返回元素的高度（不包括内边距、边框或外边距）。</p>
+<p>innerWidth() 方法返回元素的宽度（包括内边距）。</p>
+<p>innerHeight() 方法返回元素的高度（包括内边距）。</p>
+<p>outerWidth() 方法返回元素的宽度（包括内边距和边框）。</p>
+<p>outerHeight() 方法返回元素的高度（包括内边距和边框）。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/23/day13/" data-id="ck0854ee30004rsvcu67e3jfy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/24/day14/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          day14
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/20/day12/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">day12</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/03/暑期总结/">暑期总结</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/24/day14/">day14</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/23/day13/">day13</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/20/day12/">day12</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/18/day11/">day11</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
